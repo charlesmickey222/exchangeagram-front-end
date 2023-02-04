@@ -1,7 +1,10 @@
+import CreatePostForm from "../../components/CreatePostForm/CreatePostForm"
+
 const NewPost = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <h1>Create a New Post</h1>
+      <CreatePostForm />
     </>
 )
 }
