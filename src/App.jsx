@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import NewPost from './pages/NewPost/NewPost'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -62,6 +63,12 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route 
+          path="/new-post"
+          element={<NewPost />}
+        />
+
       </Routes>
     </>
   )
