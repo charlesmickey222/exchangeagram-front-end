@@ -19,6 +19,7 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -38,7 +39,10 @@ const App = () => {
     <>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route 
+          path="/" 
+          element={<Landing user={user} />}
+        />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
@@ -46,6 +50,14 @@ const App = () => {
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
+        />
+        <Route
+          path="/:id"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/profiles"
