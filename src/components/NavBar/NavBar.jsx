@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-
+import { useState } from 'react'
 const NavBar = ({ user, handleLogout }) => {
   return (
     <nav>
       {user ?
         <ul>
-          <li>Welcome, {user.name}</li>
+          <li><Link to={`/${user.name.replaceAll(' ','_')}`} state={{user}}>{user.name}</Link></li>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/profiles">Profiles</Link></li>
           <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
