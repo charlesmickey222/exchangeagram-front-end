@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
+import {Link} from 'react-router-dom'
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
@@ -18,7 +19,7 @@ const Profiles = () => {
       {profiles.length ? 
         <>
           {profiles.map(profile =>
-            <p key={profile._id}>{profile.name}</p>
+            <Link key={`${profile._id}`}to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
           )}
         </>
       :
@@ -27,5 +28,5 @@ const Profiles = () => {
     </>
   )
 }
- 
+
 export default Profiles
