@@ -1,5 +1,7 @@
 const Post = () => {
-  return ( <>
+  return ( 
+  <>
+  <p>this is a Post</p>
   </>
   );
 }
