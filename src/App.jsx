@@ -9,7 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NewPost from './pages/NewPost/NewPost'
-
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -19,7 +19,7 @@ import * as authService from './services/authService'
 
 // styles
 import './App.css'
-import ProfilePage from './pages/ProfilePage/ProfilePage'
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
