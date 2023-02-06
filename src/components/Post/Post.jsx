@@ -1,7 +1,21 @@
 import './Post.css'
 import Comment from '../Comment/Comment'
+import * as postService from '../../services/postService.js'
+import { useState } from 'react'
+import NewComment from '../NewComment/NewComment.jsx'
+import { useParams } from 'react-router-dom'
+
+
 
 const Post = (props) => {
+  const { id } = useParams()
+  const [post, setPost] = useState(null)
+  
+
+  const handleAddComment = async (commentData) => {
+    const newComment = await postService.createComment(id, commentData)
+    setPost({...post, comments: [...post.comments, newComment]})
+  }
   return ( 
   <div id="post">
     <div>
@@ -15,6 +29,7 @@ const Post = (props) => {
     {props.post.comments.map(comment =>
       <Comment key={comment._id} comment={comment} />
     )}
+      <NewComment handleAddComment={handleAddComment} />
   </div>
   )
 }
