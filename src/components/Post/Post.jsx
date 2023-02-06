@@ -1,9 +1,17 @@
-const Post = () => {
+import './Post.css'
+
+const Post = (props) => {
   return ( 
-  <>
-  <p>this is a Post</p>
-  </>
-  );
+  <div id="post">
+    <div>
+      <img className="profile-picture" src={props.post.author.photo} alt="profile pic" />
+      <h4>{props.post.author.name}</h4>
+    </div>
+    <img src={props.post.photo} alt="user's post here" />
+    <p>{props.post.createdAt}</p>
+    <p>Caption: {props.post.caption}</p>
+  </div>
+  )
 }
 
-export default Post;
+export default Post
