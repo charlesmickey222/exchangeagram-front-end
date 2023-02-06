@@ -46,6 +46,7 @@ const CreatePostForm = (props) => {
           type="file"
           id="photo-upload"
           name="photo"
+          required
           onChange={handleChangePhoto}
         />
         <input  type="text"
