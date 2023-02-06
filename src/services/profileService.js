@@ -17,7 +17,7 @@ async function fetchProfile(targetID){
 }
 
 async function addPhoto(photoData, profileId) {
-  const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
+  const res = await fetch(`${BASE_URL}/api/profile/${profileId}/add-photo`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`

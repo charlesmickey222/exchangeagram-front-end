@@ -9,8 +9,7 @@ const ProfilePage = () => {
   
   return ( 
   <>
-  <h1>this is a profile page</h1>
-    <h2>username:{targetProfile.name}</h2>
+    <h1>{targetProfile.name}</h1>
   </> );
 }
 
