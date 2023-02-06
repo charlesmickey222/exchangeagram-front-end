@@ -18,12 +18,14 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as postService from './services/postService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [userProfile,setUserProfile] = useState({})
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
@@ -36,7 +38,13 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
-
+  useEffect(() =>{
+    const getUserProfile = async() =>{
+      const targetProfile = await profileService.fetchProfile(user.profile)
+      setUserProfile(targetProfile)
+    }
+    getUserProfile()
+  },[user])
   useEffect(() => {
     const fetchAllPosts = async () => {
       const data = await postService.index()
@@ -48,7 +56,7 @@ const App = () => {
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar user={user} userProfile={userProfile} handleLogout={handleLogout} />
       <Routes>
         <Route 
           path="/" 
