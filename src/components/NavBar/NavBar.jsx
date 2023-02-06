@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-const NavBar = ({ user,userProfile, handleLogout }) => {
+const NavBar = ({ user,profile, handleLogout }) => {
   return (
     <nav>
       {user ?
         <ul>
-          <li><Link to={`/${user.name.replaceAll(' ','_')}`} state={{userProfile}}>{user.name}</Link></li>
+          <li><Link to={`/${user.name.replaceAll(' ','_')}`} state={{profile}}>{user.name}</Link></li>
           <li><Link to="/posts">Feed</Link></li>
           <li><Link to="/profiles">Profiles</Link></li>
           <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
