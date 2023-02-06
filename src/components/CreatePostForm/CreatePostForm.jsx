@@ -52,4 +52,4 @@ const CreatePostForm = (props) => {
 )
 }
 
-export default CreatePostForm
+export default CreatePostForm 
