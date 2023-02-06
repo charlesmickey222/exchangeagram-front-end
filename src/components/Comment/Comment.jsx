@@ -1,9 +1,9 @@
-const Comment = () => {
+const Comment = (props) => {
   return ( 
     <>
-    <p>this is a comment</p>
+      <p>{props.comment.author}: {props.comment.text}</p>
     </>
-  );
+  )
 }
 
-export default Comment;
+export default Comment
