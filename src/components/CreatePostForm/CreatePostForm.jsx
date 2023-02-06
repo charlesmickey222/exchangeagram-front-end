@@ -46,7 +46,7 @@ const CreatePostForm = (props) => {
           name="photo"
           onChange={handleChangePhoto}
         />
-        <textarea name="caption"  cols="30" rows="10" onChange={handleChange}></textarea>
+        <input type='text' name='caption' />
       </form>
     </>
 )
