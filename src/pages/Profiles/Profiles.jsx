@@ -20,9 +20,9 @@ const Profiles = () => {
         <>
         <ul>
           {profiles.map(profile =>
-            <li>
+            <li key={`${profile._id}`}>
               <img src={`${profile.photo}`} style={{height:'10vh'}} alt='profile'/>
-              <Link key={`${profile._id}`} to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
+              <Link to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
             </li>
           )}
 
