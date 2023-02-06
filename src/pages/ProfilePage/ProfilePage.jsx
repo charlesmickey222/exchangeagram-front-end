@@ -4,9 +4,8 @@ const ProfilePage = () => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
   useEffect(() => {
-    setTargetProfile(location.state.user)
-
-  }, [location.state.user])
+    setTargetProfile(location.state.userProfile)
+  }, [location.state.userProfile])
   
   return ( 
   <>
