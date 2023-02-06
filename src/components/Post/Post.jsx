@@ -1,7 +1,12 @@
 import './Post.css'
 import Comment from '../Comment/Comment'
+import NewComment from '../NewComment/NewComment'
+import * as postService from '../../services/postService'
 
 const Post = (props) => {
+ 
+
+  
   return ( 
   <div id="post">
     <div>
@@ -15,6 +20,7 @@ const Post = (props) => {
     {props.post.comments.map(comment =>
       <Comment key={comment._id} comment={comment} />
     )}
+      
   </div>
   )
 }
