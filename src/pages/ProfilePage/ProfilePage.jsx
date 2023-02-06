@@ -16,14 +16,9 @@ const ProfilePage = () => {
       <img src={`${targetProfile.photo}`} alt='profile'/>
       </div>
       <p className="username">{targetProfile.name}</p>
-      <table className="statsContainer">
-        <tr>
-          <th>posts</th>
-        </tr>
-        <tr>
-          <td>{targetProfile.posts?`${targetProfile.posts.length}`:'0'}</td>
-        </tr>
-      </table>
+      <div className="statsContainer">
+        posts: {targetProfile.posts?targetProfile.posts.length:0}
+      </div>
     </div>
     </section>
   </> );
