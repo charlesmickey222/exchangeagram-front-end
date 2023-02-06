@@ -16,9 +16,7 @@ const ProfilePage = () => {
       <img src={`${targetProfile.photo}`} alt='profile'/>
       </div>
       <p className="username">{targetProfile.name}</p>
-    </div>
-    <div className="statsContainer">
-      <table>
+      <table className="statsContainer">
         <tr>
           <th>posts</th>
         </tr>
