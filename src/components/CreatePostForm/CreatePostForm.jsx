@@ -13,14 +13,11 @@ const CreatePostForm = (props) => {
   }
   
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    passwordConf: '',
+    caption: '',
   })
   
   const handleChange = e => {
-    props.updateMessage('')
+    console.log(e)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -37,6 +34,8 @@ const CreatePostForm = (props) => {
     }
   }
 
+  const { caption } = formData
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -49,7 +48,11 @@ const CreatePostForm = (props) => {
           name="photo"
           onChange={handleChangePhoto}
         />
-        <textarea name="caption"  cols="30" rows="10" onChange={handleChange}></textarea>
+        <input  type="text"
+          autoComplete="off"
+          value={formData.caption}
+          name="caption"
+          onChange={handleChange}/>
         <button type="submit">Create Post</button>
       </form>
     </>
