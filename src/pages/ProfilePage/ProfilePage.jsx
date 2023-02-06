@@ -7,9 +7,10 @@ const ProfilePage = () => {
   useEffect(() => {
     setTargetProfile(location.state.userProfile)
   }, [location.state.userProfile])
-  
+  if (!targetProfile) return <p>loading</p>
   return ( 
   <>
+    <section>
     <div className="profileHeader">
       <div className="profPic">
       <img src={`${targetProfile.photo}`} alt='profile'/>
@@ -22,10 +23,11 @@ const ProfilePage = () => {
           <th>posts</th>
         </tr>
         <tr>
-          <td>{targetProfile.posts.length}</td>
+          <td>{targetProfile.posts?`${targetProfile.posts.length}`:'0'}</td>
         </tr>
       </table>
     </div>
+    </section>
   </> );
 }
 
