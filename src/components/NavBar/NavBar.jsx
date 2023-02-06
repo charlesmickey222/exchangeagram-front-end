@@ -1,16 +1,6 @@
 import { Link } from 'react-router-dom'
-import { fetchProfile } from '../../services/profileService'
 import { useEffect, useState } from 'react'
-const NavBar = ({ user, handleLogout }) => {
-  const [userProfile, setUserProfile]= useState({})
-  useEffect(()=>{
-      async function profileGrabber(evt){
-        evt.preventDefault()
-        const targetProfile = await fetchProfile(user.profile)
-        setUserProfile(targetProfile)
-      }
-      profileGrabber()
-  })
+const NavBar = ({ user,userProfile, handleLogout }) => {
   return (
     <nav>
       {user ?
