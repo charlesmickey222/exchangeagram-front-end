@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 
 // page components
@@ -10,19 +10,21 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import NewPost from './pages/NewPost/NewPost'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
+import Feed from './pages/Feed/Feed'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as postService from './services/postService'
 
 // styles
 import './App.css'
 
-
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -35,6 +37,15 @@ const App = () => {
     setUser(authService.getUser())
   }
 
+  useEffect(() => {
+    const fetchAllPosts = async () => {
+      const data = await postService.index()
+      console.log('DATA:', data)
+      setPosts(data)
+    }
+    fetchAllPosts()
+  }, [user])
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -42,6 +53,14 @@ const App = () => {
         <Route 
           path="/" 
           element={<Landing user={user} />}
+        />
+        <Route 
+          path="/posts" 
+          element={
+            <ProtectedRoute user={user}>
+              <Feed posts={posts} />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/signup"
