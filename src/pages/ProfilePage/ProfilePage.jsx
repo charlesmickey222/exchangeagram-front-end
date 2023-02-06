@@ -5,8 +5,8 @@ const ProfilePage = () => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
   useEffect(() => {
-    setTargetProfile(location.state.userProfile)
-  }, [location.state.userProfile])
+    setTargetProfile(location.state.profile)
+  }, [location.state.profile])
   if (!targetProfile) return <p>loading</p>
   return ( 
   <>

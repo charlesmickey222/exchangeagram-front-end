@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
-
+  
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()
@@ -18,9 +18,15 @@ const Profiles = () => {
       <h1>Hello. This is a list of all the profiles.</h1>
       {profiles.length ? 
         <>
+        <ul>
           {profiles.map(profile =>
-            <Link key={`${profile._id}`}to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
+            <li>
+              <img src={`${profile.photo}`} style={{height:'10vh'}} alt='profile'/>
+              <Link key={`${profile._id}`} to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
+            </li>
           )}
+
+          </ul>
         </>
       :
         <p>No profiles yet</p>
