@@ -1,0 +1,21 @@
+.profPic{
+  border: 1px solid rgba(0,0,0, .2);
+  border-radius: 50%;
+  height:14vh;
+  width:14vh;
+  overflow: hidden;
+  z-index: .1;
+  text-align: center;
+  vertical-align: middle;
+  margin:0 10px 0 10px;
+  display: inline-block;
+}
+.profileHeader img{
+  height: 15vh;
+  z-index: 0;
+}
+
+.username{
+  display: inline;
+  text-decoration: underline;
+}
