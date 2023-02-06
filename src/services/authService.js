@@ -1,10 +1,10 @@
 import * as tokenService from './tokenService'
 import { addPhoto as addProfilePhoto } from './profileService'
-const BASE_URL = /*${process.env.REACT_APP_BACK_END_SERVER_URL}*/`http://localhost:3001/api/auth`
+const BASE_URL = process.env.REACT_APP_BACK_END_SERVER_URL
 
 async function signup(user, photo) {
   try {
-    const res = await fetch(`${BASE_URL}/signup`, {
+    const res = await fetch(`${BASE_URL}/api/auth/signup`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(user),
@@ -38,7 +38,7 @@ function logout() {
 
 async function login(credentials) {
   try {
-    const res = await fetch(`${BASE_URL}/login`, {
+    const res = await fetch(`${BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(credentials),
@@ -57,7 +57,7 @@ async function login(credentials) {
 
 async function changePassword(credentials) {
   try {
-    const res = await fetch(`${BASE_URL}/change-password`, {
+    const res = await fetch(`${BASE_URL}/api/auth/change-password`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
