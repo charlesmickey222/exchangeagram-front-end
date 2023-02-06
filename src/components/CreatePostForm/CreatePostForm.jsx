@@ -1,9 +1,11 @@
 import { useState } from "react"
-
-
+import * as postService from '../../services/postService.js'
+import { Link, useNavigate } from "react-router-dom"
 
 const CreatePostForm = (props) => {
-  
+  const navigate = useNavigate()
+
+
   const [photoData, setPhotoData] = useState({})
   
   const handleChangePhoto = (evt) => {
@@ -11,14 +13,11 @@ const CreatePostForm = (props) => {
   }
   
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    passwordConf: '',
+    caption: '',
   })
   
   const handleChange = e => {
-    props.updateMessage('')
+    console.log(e)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -28,11 +27,14 @@ const CreatePostForm = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-    
+      await postService.create(formData, photoData.photo)
+      navigate('/')
     } catch (err) {
-      props.updateMessage(err.message)
+      console.log(err)
     }
   }
+
+  const { caption } = formData
 
   return (
     <>
@@ -46,10 +48,15 @@ const CreatePostForm = (props) => {
           name="photo"
           onChange={handleChangePhoto}
         />
-        <input type='text' name='caption' />
+        <input  type="text"
+          autoComplete="off"
+          value={formData.caption}
+          name="caption"
+          onChange={handleChange}/>
+        <button type="submit">Create Post</button>
       </form>
     </>
 )
 }
 
-export default CreatePostForm
+export default CreatePostForm 
