@@ -1,15 +1,16 @@
 import * as tokenService from './tokenService'
 
-const BASE_URL = /*${process.env.REACT_APP_BACK_END_SERVER_URL}*/`http://localhost:3001/api/auth`
+const BASE_URL = process.env.REACT_APP_BACK_END_SERVER_URL
 
 async function getAllProfiles() {
-  const res = await fetch(`http://localhost:3001/api/profiles`, {
+  const res = await fetch(`${BASE_URL}/api/profiles`, {
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   })
   return await res.json()
 }
+
 async function fetchProfile(targetID){
-  const res = await fetch(`http://localhost:3001/api/profiles/${targetID}`,{
+  const res = await fetch(`${BASE_URL}/api/profiles/${targetID}`,{
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   })
   return await res.json()
