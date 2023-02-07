@@ -14,10 +14,20 @@ async function addPhotoPost (photoData, profileId){
   })
   return await res.json()
 }
+async function fetchPost(postId){
+  try{
+    const res = await fetch(`${BASE_URL}/${postId}`,{
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}` 
+      },
+    })
+    return res.json()
+  }catch (error){
+    console.log(error)
+  }
+}
 
-
-
-const index = async () => {
+async function index(){
   try {
     const res = await fetch(BASE_URL, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
@@ -54,6 +64,7 @@ const createPost = async (user, photo) => {
       }
 }
 
+
 const createComment = async (id, commentData) => {
   try {
     const res = await fetch(`${BASE_URL}/${id}/comments`, {
@@ -74,5 +85,7 @@ const createComment = async (id, commentData) => {
 export {
   index,
   createPost as create,
+
+  fetchPost,
   createComment,
 }
