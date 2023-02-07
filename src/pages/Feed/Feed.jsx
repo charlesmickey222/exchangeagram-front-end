@@ -10,6 +10,7 @@ const Feed = (props) => {
           handleAddComment={props.handleAddComment}
           handleDeletePost={props.handleDeletePost}
           handleAddLike={props.handleAddLike}
+          user={props.user}
         />
       ))}
     </>
