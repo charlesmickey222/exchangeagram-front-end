@@ -8,9 +8,10 @@ const NewComment = (props) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    props.handleAddComment(props.postId, form)
     setForm({ text: '' })
   }
-
+  console.log('props.ID:', props.postId)
   return (
     <form onSubmit={handleSubmit}>
       <textarea

@@ -65,6 +65,7 @@ const createPost = async (user, photo) => {
 
 
 const createComment = async (id, commentData) => {
+  console.log('ID', id);
   try {
     const res = await fetch(`${BASE_URL}/${id}/comments`, {
       method: 'POST',

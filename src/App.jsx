@@ -29,6 +29,11 @@ const App = () => {
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
 
+  const handleAddComment = async (postId, commentData) => {
+    const updatedPost = await postService.createComment(postId, commentData)
+    setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -38,6 +43,7 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
   useEffect(() =>{
     const getUserProfile = async() =>{
       const targetProfile = await profileService.fetchProfile(user.profile)
@@ -45,6 +51,7 @@ const App = () => {
     }
     getUserProfile()
   },[user])
+
   useEffect(() => {
     const fetchAllPosts = async () => {
       const data = await postService.index()
@@ -66,7 +73,7 @@ const App = () => {
           path="/posts" 
           element={
             <ProtectedRoute user={user}>
-              <Feed posts={posts} />
+              <Feed posts={posts} handleAddComment={handleAddComment} />
             </ProtectedRoute>
           }
         />

@@ -1,7 +1,7 @@
-const Comment = (props) => {
+const Comment = ({ comment }) => {
   return ( 
     <>
-      <p>{props.comment.author}: {props.comment.text}</p>
+      <p>{comment.author.name}: {comment.text}</p>
     </>
   )
 }
