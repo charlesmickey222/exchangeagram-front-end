@@ -3,14 +3,20 @@ import { useState,useEffect } from "react";
 import './ProfilePage.css'
 import { Link } from "react-router-dom";
 import PostPreview from "../../components/Post/PostPreview";
-const ProfilePage = (user) => {
+const ProfilePage = (props) => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
   const [ownsProfile,setOwnsProfile] = useState({})
   useEffect(() => {
+    console.log(location.state.profile)
+    setOwnsProfile(Boolean(props.userProfile._id === location.state.profile._id))
+    if (ownsProfile){
+      setTargetProfile(props.userProfile)
+    }else{
     setTargetProfile(location.state.profile)
-    setOwnsProfile(Boolean(user.profile === location.state.profile))
-  }, [location.state.profile, user])
+    }
+
+  }, [location.state.profile, props.user, props.userProfile, ownsProfile])
 
   if (!targetProfile) return <p>loading</p>
 
@@ -29,7 +35,7 @@ const ProfilePage = (user) => {
       {{ownsProfile} &&  <Link to=''>edit profile</Link>}
       </>
     </div>
-    <div className="postContainer">
+    {!ownsProfile &&  <div className="postContainer">
       {targetProfile.posts?
           targetProfile.posts.map(post => 
           <div key={`${post}`}>
@@ -37,7 +43,16 @@ const ProfilePage = (user) => {
           </div>)
         :
       'no posts here'}
-    </div>
+    </div>}
+    {ownsProfile &&  <div className="postContainer">
+      {targetProfile.posts?
+          targetProfile.posts.map(post => 
+          <div key={`${post._id}`}>
+            <PostPreview  post={post._id}/>
+          </div>)
+        :
+      'no posts here'}
+    </div>}
     </section>
   </> );
 }

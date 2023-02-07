@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 const NavBar = ({ user, profile, handleLogout }) => {
+
   return (
     <nav>
       {user ?
