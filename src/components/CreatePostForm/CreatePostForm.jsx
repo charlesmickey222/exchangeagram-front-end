@@ -49,8 +49,12 @@ const CreatePostForm = (props) => {
           required
           onChange={handleChangePhoto}
         />
+        <label for="caption-upload">
+        caption
+        </label>
         <input  type="text"
           autoComplete="off"
+          id="caption-upload"
           value={formData.caption}
           name="caption"
           onChange={handleChange}/>
