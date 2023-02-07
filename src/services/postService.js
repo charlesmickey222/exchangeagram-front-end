@@ -1,6 +1,6 @@
 import * as tokenService from './tokenService'
 
-const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/posts`
+const BASE_URL = `https://exchangeagram-api.fly.dev/api/posts`
 //Helper Function
 async function addPhotoPost (photoData, profileId){
   console.log(photoData)
