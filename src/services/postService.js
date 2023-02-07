@@ -14,6 +14,7 @@ async function addPhotoPost (photoData, profileId){
   })
   return await res.json()
 }
+
 async function fetchPost(postId){
   try{
     const res = await fetch(`${BASE_URL}/${postId}`,{
@@ -63,7 +64,6 @@ const createPost = async (user, photo) => {
       }
 }
 
-
 const createComment = async (id, commentData) => {
   console.log('ID', id);
   try {
@@ -81,10 +81,24 @@ const createComment = async (id, commentData) => {
   }
 }
 
+const deletePost = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 export {
   index,
   createPost as create,
   fetchPost,
   createComment,
+  deletePost
 }

@@ -1,6 +1,6 @@
 // npm modules
 import { useState, useEffect } from 'react'
-import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // page components
 import Signup from './pages/Signup/Signup'
@@ -32,6 +32,12 @@ const App = () => {
   const handleAddComment = async (postId, commentData) => {
     const updatedPost = await postService.createComment(postId, commentData)
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
+  }
+
+  const handleDeletePost = async (id) => {
+    const deletedPost = await postService.deletePost(id)
+    setPosts(posts.filter(p => p._id !== deletedPost._id))
+    navigate('/posts')
   }
 
   const handleLogout = () => {
@@ -73,7 +79,11 @@ const App = () => {
           path="/posts" 
           element={
             <ProtectedRoute user={user}>
-              <Feed posts={posts} handleAddComment={handleAddComment} />
+            <Feed
+              posts={posts}
+              handleAddComment={handleAddComment}
+              handleDeletePost={handleDeletePost}
+            />
             </ProtectedRoute>
           }
         />
