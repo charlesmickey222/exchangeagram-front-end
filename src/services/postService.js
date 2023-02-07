@@ -17,7 +17,9 @@ async function addPhotoPost (photoData, profileId){
 async function fetchPost(postId){
   try{
     const res = await fetch(`${BASE_URL}/${postId}`,{
-      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+      headers: { 
+        'Authorization': `Bearer ${tokenService.getToken()}` 
+      },
     })
     return res.json()
   }catch (error){
