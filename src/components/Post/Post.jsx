@@ -1,5 +1,6 @@
 import './Post.css'
 import Comment from '../Comment/Comment'
+import Profile from '../Profile/Profile'
 
 const Post = (props) => {
   return ( 
