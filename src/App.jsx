@@ -151,7 +151,10 @@ const App = () => {
         <Route path="/profiles/:id/:id"
           element={
             <ProtectedRoute user={user}>
-              <PostDetails />
+              <PostDetails 
+                handleAddComment={handleAddComment}
+                handleDeletePost={handleDeletePost}
+                handleAddLike={handleAddLike}/>
             </ProtectedRoute>
           }
         />
