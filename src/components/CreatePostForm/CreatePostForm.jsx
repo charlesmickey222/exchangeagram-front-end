@@ -48,6 +48,7 @@ const CreatePostForm = (props) => {
           name="photo"
           required
           onChange={handleChangePhoto}
+          accept='image/png, image/jpeg'
         />
         <label for="caption-upload">
         caption
