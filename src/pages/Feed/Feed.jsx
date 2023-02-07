@@ -4,7 +4,7 @@ const Feed = (props) => {
   return (
     < >
       {props.posts.map((post) => (
-        <Post key={post._id} post={post} />
+        <Post key={post._id} post={post} handleAddComment={props.handleAddComment}/>
       ))}
     </>
   )

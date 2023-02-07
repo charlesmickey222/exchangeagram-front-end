@@ -1,7 +1,7 @@
 const Comment = ({ comment }) => {
   return ( 
     <>
-      <p>{comment.author}: {comment.text}</p>
+      <p>{comment.author.name}: {comment.text}</p>
     </>
   )
 }
