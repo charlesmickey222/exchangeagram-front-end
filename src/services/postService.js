@@ -65,7 +65,6 @@ const createPost = async (user, photo) => {
 }
 
 const createComment = async (id, commentData) => {
-  console.log('ID', id);
   try {
     const res = await fetch(`${BASE_URL}/${id}/comments`, {
       method: 'POST',
@@ -111,11 +110,28 @@ const update = async (postData) => {
   }
 }
 
+const createLikes = async (id, likeData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${id}/likes`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(likeData)
+    })
+    return res.json()
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export {
   index,
   createPost as create,
   fetchPost,
   createComment,
   deletePost,
-  update
+  update,
+  createLikes
 }
