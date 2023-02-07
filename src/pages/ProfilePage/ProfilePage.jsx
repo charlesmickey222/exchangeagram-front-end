@@ -6,9 +6,10 @@ import PostPreview from "../../components/Post/PostPreview";
 const ProfilePage = (user) => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
-  
+  const [ownsProfile,setOwnsProfile] = useState({})
   useEffect(() => {
     setTargetProfile(location.state.profile)
+    setOwnsProfile(Boolean(user.profile === location.state.profile))
   }, [location.state.profile, user])
 
   if (!targetProfile) return <p>loading</p>
@@ -25,7 +26,7 @@ const ProfilePage = (user) => {
         posts: {targetProfile.posts?targetProfile.posts.length:0}
       </div>
       <>
-      {user.user.profile === targetProfile._id &&  <Link to=''>edit profile</Link>}
+      {{ownsProfile} &&  <Link to=''>edit profile</Link>}
       </>
     </div>
     <div className="postContainer">

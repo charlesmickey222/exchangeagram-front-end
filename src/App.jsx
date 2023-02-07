@@ -141,6 +141,9 @@ const App = () => {
             </ProtectedRoute>  
           }
         />
+        <Route path="/posts/:id">
+          
+        </Route>
         <Route
           path="/posts/:id/edit"
           element={
