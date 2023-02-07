@@ -13,7 +13,7 @@ const PostPreview = (post) => {
   return ( 
   <>
   {targetPost?
-  <Link to={`${targetPost._id}`}>
+  <Link to={`${targetPost._id}`} state={{targetPost}}>
   <img src={`${targetPost.photo}`} alt='post preview' style={{height:'20vh'}}/>
   </Link>:'loading post'}
   </>
