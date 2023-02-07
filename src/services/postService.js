@@ -39,7 +39,6 @@ async function index(){
 }
 
 const createPost = async (user, photo) => {
-      console.log(photo)
       try {
         const res = await fetch(BASE_URL, {
           method: 'POST',
@@ -85,7 +84,6 @@ const createComment = async (id, commentData) => {
 export {
   index,
   createPost as create,
-
   fetchPost,
   createComment,
 }
