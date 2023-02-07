@@ -10,8 +10,10 @@ const NewLike = (props) => {
 
   const handleClick = () => {
     if (isClicked) {
+      profileService.removeLikedPost(props.user._id, props.postId);
       setLikes(likes - 1);
     } else {
+      profileService.addLikedPost(props.user._id, props.postId);
       setLikes(likes + 1);
     }
     setIsClicked(!isClicked);
@@ -21,8 +23,8 @@ const NewLike = (props) => {
     e.preventDefault()
     props.handleAddLike(props.postId, likes)
     console.log(likes)
-    console.log(props.user._id)
-    profileService.addLikedPost(props.user._id, props.postID)
+    console.log(props.postId)
+    
   }
 
   return (
