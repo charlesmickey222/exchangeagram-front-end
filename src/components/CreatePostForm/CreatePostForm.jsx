@@ -17,7 +17,6 @@ const CreatePostForm = (props) => {
   })
   
   const handleChange = e => {
-    console.log(e)
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -28,7 +27,7 @@ const CreatePostForm = (props) => {
     e.preventDefault()
     try {
       await postService.create(formData, photoData.photo)
-      navigate('/')
+      navigate('/posts')
     } catch (err) {
       console.log(err)
     }
