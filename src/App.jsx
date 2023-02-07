@@ -23,6 +23,7 @@ import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
+import PostDetails from './pages/PostDetails/PostDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -147,6 +148,13 @@ const App = () => {
             </ProtectedRoute>  
           }
         />
+        <Route path="/posts/:id">
+          element={
+            <ProtectedRoute user={user}>
+              <PostDetails />
+            </ProtectedRoute>
+          }
+        </Route>
         <Route
           path="/posts/:id/edit"
           element={

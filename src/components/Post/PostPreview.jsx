@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchPost } from "../../services/postService";
+import { Link } from "react-router-dom";
 const PostPreview = (post) => {
   const [targetPost, setTargetPost] = useState({})
-  console.log(post)
   useEffect(()=>{
     async function postGrabber(){
       const postData = await fetchPost(post.post)
@@ -13,9 +13,9 @@ const PostPreview = (post) => {
   return ( 
   <>
   {targetPost?
-  <>
+  <Link to={`${targetPost._id}`}>
   <img src={`${targetPost.photo}`} alt='post preview' style={{height:'20vh'}}/>
-  </>:'loading post'}
+  </Link>:'loading post'}
   </>
   );
 }
