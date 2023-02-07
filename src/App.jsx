@@ -93,6 +93,7 @@ const App = () => {
             <ProtectedRoute user={user}>
               <Feed
                 posts={posts}
+                user={user}
                 handleAddComment={handleAddComment}
                 handleDeletePost={handleDeletePost}
                 handleAddLike={handleAddLike}

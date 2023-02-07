@@ -26,4 +26,14 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, fetchProfile, addPhoto }
+async function addLikedPost(profileId, likedPost){
+  const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/add-like`,{
+    method : 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: likedPost
+  })
+  return await res.json()
+}
+export { getAllProfiles, fetchProfile, addPhoto, addLikedPost }

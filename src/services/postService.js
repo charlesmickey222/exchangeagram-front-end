@@ -126,6 +126,17 @@ const createLikes = async (id, likeData) => {
   }
 }
 
+// async function addLikedPost(postId, likeCount){
+//   const res = await fetch(`${BASE_URL}/api/posts/${postId}/add-like`,{
+//     method : 'PATCH',
+//     headers: {
+//       'Authorization': `Bearer ${tokenService.getToken()}`
+//     },
+//     body: likeCount
+//   })
+//   return await res.json()
+// }
+
 export {
   index,
   createPost as create,
@@ -133,5 +144,6 @@ export {
   createComment,
   deletePost,
   update,
-  createLikes
+  createLikes,
+  // addLikedPost
 }
