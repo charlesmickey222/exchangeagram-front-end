@@ -36,10 +36,6 @@ const App = () => {
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
   }
 
-  const handleAddLike = async (postId, likeData) => {
-    const newLike = await postService.createLikes(postId, likeData)
-    setPosts({ ...posts, likes: [...posts.likes, newLike]})
-  }
 
   const handleDeletePost = async (id) => {
     const deletedPost = await postService.deletePost(id)
@@ -96,7 +92,6 @@ const App = () => {
                 user={user}
                 handleAddComment={handleAddComment}
                 handleDeletePost={handleDeletePost}
-                handleAddLike={handleAddLike}
               />
             </ProtectedRoute>
           }
@@ -155,7 +150,7 @@ const App = () => {
               <PostDetails 
                 handleAddComment={handleAddComment}
                 handleDeletePost={handleDeletePost}
-                handleAddLike={handleAddLike}/>
+                />
             </ProtectedRoute>
           }
         />
