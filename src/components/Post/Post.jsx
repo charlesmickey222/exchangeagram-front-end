@@ -5,16 +5,17 @@ import { useState } from 'react'
 import NewComment from '../NewComment/NewComment.jsx'
 import { useParams } from 'react-router-dom'
 
-
-
 const Post = (props) => {
   const { id } = useParams()
+  console.log('ID:', id)
   const [post, setPost] = useState(null)
-  
-
+  // const handleAddComment = async (commentData) => {
+  //   const newComment = await postService.createComment(id, commentData)
+  //   setPost({...post, comments: [...post.comments, newComment]})
+  // }
   const handleAddComment = async (commentData) => {
-    const newComment = await postService.createComment(id, commentData)
-    setPost({...post, comments: [...post.comments, newComment]})
+    const updatedPost = await postService.createComment(id, commentData)
+    setPost(updatedPost)
   }
   return ( 
   <div id="post">

@@ -1,13 +1,13 @@
 import { useState } from "react"
 
 const NewComment = (props) => {
-  console.log(props)
   const [form, setForm] = useState({ text: '' })
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value})
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    props.handleAddComment(form)
     setForm({ text: '' })
   }
 
