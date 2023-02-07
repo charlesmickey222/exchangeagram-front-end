@@ -95,10 +95,27 @@ const deletePost = async (id) => {
   }
 }
 
+const update = async (postData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${postData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    })
+    return res.json()
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export {
   index,
   createPost as create,
   fetchPost,
   createComment,
-  deletePost
+  deletePost,
+  update
 }

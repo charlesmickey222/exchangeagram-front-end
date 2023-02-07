@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 const NewComment = (props) => {
-  console.log(props)
   const [form, setForm] = useState({ text: '' })
   const handleChange = ({ target }) => {
     setForm({ ...form, [target.name]: target.value})
@@ -11,7 +10,6 @@ const NewComment = (props) => {
     props.handleAddComment(props.postId, form)
     setForm({ text: '' })
   }
-  console.log('props.ID:', props.postId)
   return (
     <form onSubmit={handleSubmit}>
       <textarea
