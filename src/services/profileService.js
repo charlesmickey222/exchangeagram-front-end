@@ -55,4 +55,4 @@ async function createMessage(profileId, messageData){
   return await res.json()
 }
 
-export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost }
+export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost, createMessage, }
