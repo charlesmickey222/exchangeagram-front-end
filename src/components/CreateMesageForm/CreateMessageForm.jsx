@@ -2,14 +2,22 @@ import { useState } from "react"
 
 const NewMessage = (props) => {
   const [form, setForm] = useState({ text: '' })
-  const handleChange = ({ target }) => {
-    setForm({ ...form, [target.name]: target.value})
+  const [messages, setMessages] = useState([])
+  const handleChange = (e) => {
+    e.preventDefault()
+    setForm({ ...form, [e.target.name]: e.target.value})
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleAddMessage(props.profileId, form)
-    setForm({ text: '' })
+    let messageText = form.text
+    setMessages([messageText, ...messages])
+    setForm({text: ''})
+    const messageDataObj = {'text' : messageText,
+      'author' : props.user._id}
+    props.createMessage(props.user._id, messageDataObj)
   }
+  
   return (
     <form onSubmit={handleSubmit}>
       <textarea

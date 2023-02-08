@@ -30,7 +30,6 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [userProfile,setUserProfile] = useState({})
   const [posts, setPosts] = useState([])
-  const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
   const handleAddComment = async (postId, commentData) => {
@@ -38,10 +37,7 @@ const App = () => {
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
   }
 
-  const handleAddMessage = async (profileId, messageData) => {
-    const updatedMessage = await profileService.createMessage(profileId, messageData)
-    setMessages(messages.map(profile => profile._id === updatedMessage._id ? updatedMessage : profile))
-  }
+
 
 
   const handleDeletePost = async (id) => {
@@ -82,13 +78,13 @@ const App = () => {
     fetchAllPosts()
   }, [user])
 
-  useEffect(() => {
-    const fetchAllMessages = async () => {
-      const data = await profileService.messageList()
-      setMessages(data)
-    }
-    if (user) fetchAllMessages()
-  },[user])
+  // useEffect(() => {
+  //   const fetchAllMessages = async () => {
+  //     const data = await profileService.messageList()
+  //     setMessages(data)
+  //   }
+  //   if (user) fetchAllMessages()
+  // },[user])
 
   return (
     <>
@@ -184,8 +180,8 @@ const App = () => {
             <ProtectedRoute user={user}>
               <Messages 
                 profile={userProfile}
-                messages={messages}
-                handleAddMessage={handleAddMessage}/>
+                createMessage={profileService.createMessage}
+                user={user} />
             </ProtectedRoute>
           }
           />
