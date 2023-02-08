@@ -38,6 +38,11 @@ const App = () => {
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
   }
 
+  const handleAddMessage = async (profileId, messageData) => {
+    const updatedMessage = await profileService.createMessage(profileId, messageData)
+    setMessages(messages.map(profile => profile._id === updatedMessage._id ? updatedMessage : profile))
+  }
+
 
   const handleDeletePost = async (id) => {
     const deletedPost = await postService.deletePost(id)
@@ -176,7 +181,9 @@ const App = () => {
           path='/profiles/:id/messages'
           element={
             <ProtectedRoute user={user}>
-              <Messages messages={messages}/>
+              <Messages 
+                messages={messages}
+                handleAddMessage={handleAddMessage}/>
             </ProtectedRoute>
           }
           />
