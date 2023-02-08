@@ -44,4 +44,9 @@ async function removeLikedPost(profileId, likedPost){
   })
   return await res.json()
 }
+
+async function createMessage(profileId, messageData){
+  
+}
+
 export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost }
