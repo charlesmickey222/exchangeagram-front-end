@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as profileService from '../../services/profileService.js'
-
+import * as postService from '../../services/postService.js'
 
 const NewLike = (props) => {
   const [likes, setLikes] = useState(0);
@@ -13,6 +13,7 @@ const NewLike = (props) => {
     } else {
       profileService.addLikedPost(props.user._id, props.postId);
       setLikes(likes + 1);
+    
     }
     setIsClicked(!isClicked);
   }
