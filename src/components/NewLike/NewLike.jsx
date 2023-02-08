@@ -3,17 +3,17 @@ import * as profileService from '../../services/profileService.js'
 import * as postService from '../../services/postService.js'
 
 const NewLike = (props) => {
-  const [likes, setLikes] = useState(0);
-  const [isClicked, setIsClicked] = useState(false);
+  const [likes, setLikes] = useState((props.post.likes ? props.post.likes.length : 0));
+  const [isClicked, setIsClicked] = useState(true);
+
 
   const handleClick = () => {
-    if (isClicked) {
+    if (!isClicked) {
       profileService.removeLikedPost(props.user._id, props.postId);
       setLikes(likes - 1);
     } else {
       profileService.addLikedPost(props.user._id, props.postId);
       setLikes(likes + 1);
-    
     }
     setIsClicked(!isClicked);
   }
@@ -22,6 +22,8 @@ const NewLike = (props) => {
     e.preventDefault()
   }
 
+  console.log(props.post)
+  
   return (
     <form onSubmit={handleSubmit}>
       <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick } type="submit">

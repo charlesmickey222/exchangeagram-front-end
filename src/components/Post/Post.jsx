@@ -18,7 +18,7 @@ const Post = (props) => {
     <p>{props.post.createdAt.substr(0, 10)}</p>
     {/* Renders edit and delete buttons if the post belongs to the user: */}
     <div className="update-delete-like">
-      <NewLike user={props.user} handleAddLike={props.handleAddLike} postId={props.post._id} />
+      <NewLike user={props.user} post={props.post} handleAddLike={props.handleAddLike} postId={props.post._id} />
       {props.post.author._id === props.user.profile &&
         < >
           <Link to={`/posts/${props.post._id}/edit`} state={props.post}><button>Edit Caption</button></Link>
