@@ -35,7 +35,7 @@ const ProfilePage = (props) => {
       <p className="username">{targetProfile.name}</p>
       <div className="statsContainer">
         posts: {targetProfile.posts?targetProfile.posts.length:0}
-        <Link to={`messages`}>messages</Link>
+        {<Link to={`messages`}>messages</Link>}
       </div>
     </div>
     {ownsProfile ?  
