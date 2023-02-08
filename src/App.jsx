@@ -179,6 +179,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Messages 
+                createMessage={profileService.createMessage}
                 user={user} />
             </ProtectedRoute>
           }
