@@ -57,7 +57,7 @@ const NavBar = ({ user, profile, handleLogout }) => {
                 to="/change-password"
                 style={{textDecoration: 'none', color: 'black'}}
               >
-                <i class="fa-solid fa-gear"></i>
+                <i className="fa-solid fa-gear"></i>
               </Link>
             </li>
           </div>

@@ -1,7 +1,7 @@
 import { useLocation  } from "react-router-dom";
 import { useState,useEffect } from "react";
 import './ProfilePage.css'
-import { Link } from "react-router-dom";
+/*import { Link } from "react-router-dom";*/
 import PostPreview from "../../components/Post/PostPreview";
 
 const ProfilePage = (props) => {
