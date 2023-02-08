@@ -18,12 +18,6 @@ const EditPostForm = (props) => {
     e.preventDefault()
     props.handleUpdatePost(formData)
     navigate('/posts')
-    // try {
-    //   await postService.create(formData)
-    //   navigate('/posts')
-    // } catch (err) {
-    //   console.log(err)
-    // }
   }
 
   return (
@@ -39,6 +33,7 @@ const EditPostForm = (props) => {
           onChange={handleChange}/>
         <button type="submit">Update Post</button>
       </form>
+      <img src={formData.photo} alt="original post" />
     </>
 )
 }
