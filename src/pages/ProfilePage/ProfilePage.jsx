@@ -4,13 +4,10 @@ import './ProfilePage.css'
 import { Link } from "react-router-dom";
 import PostPreview from "../../components/Post/PostPreview";
 
-
 const ProfilePage = (props) => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
   const [ownsProfile,setOwnsProfile] = useState({})
-
-  
 
   useEffect(() => {
     console.log(location.state.profile)

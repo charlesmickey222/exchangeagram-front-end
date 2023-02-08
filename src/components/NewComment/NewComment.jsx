@@ -1,3 +1,4 @@
+import './NewComment.css'
 import { useState } from "react"
 
 const NewComment = (props) => {
@@ -11,7 +12,7 @@ const NewComment = (props) => {
     setForm({ text: '' })
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="comments" onSubmit={handleSubmit}>
       <textarea
         required
         type="text"
@@ -21,7 +22,7 @@ const NewComment = (props) => {
         placeholder="Add a Comment"
         onChange={handleChange}
       />
-      <button type="submit">Add Comment</button>
+      <button className="comment-button" type="submit">Add Comment</button>
     </form>
   )
 }

@@ -1,8 +1,10 @@
+import './Comment.css'
+
 const Comment = ({ comment }) => {
   return ( 
-    <>
-      <p>{comment.author.name}: {comment.text}</p>
-    </>
+    <div className="comment-list">
+      <p><span className="comment-author">@{comment.author.name}:</span> {comment.text}</p>
+    </div>
   )
 }
 
