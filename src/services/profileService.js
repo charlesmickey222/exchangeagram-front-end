@@ -46,7 +46,13 @@ async function removeLikedPost(profileId, likedPost){
 }
 
 async function createMessage(profileId, messageData){
-  
+  const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+  })
+  return await res.json()
 }
 
 export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost }
