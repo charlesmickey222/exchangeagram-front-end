@@ -1,3 +1,10 @@
 img{
   height:80vh;
 }
+.comment-list{
+  display:block;
+}
+.PostContainer{
+  display: block;
+  margin: 0 auto;
+}

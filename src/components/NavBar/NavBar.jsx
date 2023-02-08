@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 const NavBar = ({ user, profile, handleLogout }) => {
 
   return (
+    
     <nav>
       {user ?
         <ul id="navbar">
@@ -56,7 +57,7 @@ const NavBar = ({ user, profile, handleLogout }) => {
                 to="/change-password"
                 style={{textDecoration: 'none', color: 'black'}}
               >
-                Change Password
+                <i className="fa-solid fa-gear"></i>
               </Link>
             </li>
           </div>
