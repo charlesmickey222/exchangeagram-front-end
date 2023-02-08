@@ -33,11 +33,19 @@ const ProfilePage = (props) => {
       <div className="statsContainer">
         posts: {targetProfile.posts?targetProfile.posts.length:0}
       </div>
-      <>
-      {{ownsProfile} &&  <Link to=''>edit profile</Link>}
-      </>
     </div>
-    {!ownsProfile &&  <div className="postContainer">
+    {ownsProfile ?  
+        <div className="postContainer">
+        {targetProfile.posts?
+            targetProfile.posts.map(post => 
+            <div key={`${post._id}`}>
+              <PostPreview  post={post._id}/>
+            </div>)
+          :
+        'no posts here'}
+      </div>
+      :
+    <div className="postContainer">
       {targetProfile.posts?
           targetProfile.posts.map(post => 
           <div key={`${post}`}>
@@ -45,16 +53,8 @@ const ProfilePage = (props) => {
           </div>)
         :
       'no posts here'}
-    </div>}
-    {ownsProfile &&  <div className="postContainer">
-      {targetProfile.posts?
-          targetProfile.posts.map(post => 
-          <div key={`${post._id}`}>
-            <PostPreview  post={post._id}/>
-          </div>)
-        :
-      'no posts here'}
-    </div>}
+    </div>
+}
     </section>
   </> );
 }
