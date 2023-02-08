@@ -159,6 +159,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <PostDetails 
+                user={user}
                 handleAddComment={handleAddComment}
                 handleDeletePost={handleDeletePost}
                 />
