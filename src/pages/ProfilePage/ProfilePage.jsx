@@ -38,7 +38,6 @@ const ProfilePage = (props) => {
       </div>
       <>
       {{ownsProfile} &&  <Link to=''>edit profile</Link>}
-      {/* <Link to={`${targetProfile.name.replaceAll(' ','_')}/messages`}>View Messages</Link> */}
       </>
     </div>
     {!ownsProfile &&  <div className="postContainer">
