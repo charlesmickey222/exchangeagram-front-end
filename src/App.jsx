@@ -183,6 +183,7 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Messages 
+                profile={userProfile}
                 messages={messages}
                 handleAddMessage={handleAddMessage}/>
             </ProtectedRoute>
