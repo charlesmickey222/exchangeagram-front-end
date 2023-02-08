@@ -1,0 +1,9 @@
+.comment-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-author {
+  font-weight: bold;
+}

@@ -1,4 +1,41 @@
+p {
+  margin: 8px 0;
+}
+
+h4 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
 .profile-picture {
   height: 50px;
   width: 50px;
+  border-radius: 50%;
+}
+
+.photo {
+  width: 300px;
+  height: auto;
+}
+
+.author {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 5px;
+}
+
+.update-delete-like {
+  display: flex;
+  gap: 25px;
+  margin-top: 16px;
+}
+
+#post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 50px 150px;
+  padding: 10px 0;
 }
