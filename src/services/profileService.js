@@ -55,4 +55,15 @@ async function createMessage(profileId, messageData){
   return await res.json()
 }
 
-export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost, createMessage, }
+async function messageList(profileId) {
+  try {
+    const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/messages`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return  res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost, createMessage, messageList, }
