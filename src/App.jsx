@@ -12,6 +12,7 @@ import NewPost from './pages/NewPost/NewPost'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import Feed from './pages/Feed/Feed'
 import EditPostForm from './pages/EditPost/EditPost'
+import Messages from './pages/Messages/Messages'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -29,6 +30,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const [userProfile,setUserProfile] = useState({})
   const [posts, setPosts] = useState([])
+  const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
   const handleAddComment = async (postId, commentData) => {
@@ -74,6 +76,14 @@ const App = () => {
     }
     fetchAllPosts()
   }, [user])
+
+  useEffect(() => {
+    const fetchAllMessages = async () => {
+      const data = await profileService.messageList()
+      setMessages(data)
+    }
+    if (user) fetchAllMessages()
+  },[user])
 
   return (
     <>
@@ -162,6 +172,14 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route 
+          path='/profiles/:id/messages'
+          element={
+            <ProtectedRoute user={user}>
+              <Messages messages={messages}/>
+            </ProtectedRoute>
+          }
+          />
 
       </Routes>
     </>
