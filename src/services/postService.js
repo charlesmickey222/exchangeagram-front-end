@@ -110,6 +110,22 @@ const update = async (postData) => {
   }
 }
 
+// const addLikes = async (id, likes) => {
+//   try {
+//     const res = await fetch(`${BASE_URL}/${id}/add-likes`, {
+//       method: 'PATCH',
+//       headers: {
+//         'Authorization': `Bearer ${tokenService.getToken()}`,
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({likes})
+//     })
+//     return res.json()
+//   } catch (error) {
+//     console.error(error)
+//   }
+// }
+
 export {
   index,
   createPost as create,
@@ -117,4 +133,5 @@ export {
   createComment,
   deletePost,
   update,
+  // addLikes,
 }
