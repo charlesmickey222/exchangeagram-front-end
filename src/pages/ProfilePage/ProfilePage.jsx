@@ -19,6 +19,7 @@ const ProfilePage = (props) => {
     }
   }, [location.state.profile, props.user, props.userProfile, ownsProfile])
 
+
   if (!targetProfile) return <p>loading</p>
 
   return ( 

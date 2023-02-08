@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
   
+  
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()
@@ -12,6 +13,8 @@ const Profiles = () => {
     }
     fetchProfiles()
   }, [])
+
+  
 
   return (
     <>
