@@ -18,10 +18,10 @@ const NewMessage = (props) => {
         name="text"
         id="text-input"
         value={form.text}
-        placeholder="Add a Comment"
+        placeholder="Add message"
         onChange={handleChange}
       />
-      <button type="submit">Add Comment</button>
+      <button type="submit">Send Message</button>
     </form>
   )
 }

@@ -5,6 +5,7 @@ const Messages = (props) => {
   <>
   <p>This is the message page</p>
   <p>Send Message</p>
+  <NewMessage handleAddMessage={props.handleAddMessage}/>
 
   </>
   );
