@@ -6,7 +6,6 @@ const NewLike = (props) => {
   const [likes, setLikes] = useState(0);
   const [isClicked, setIsClicked] = useState(false);
 
-
   const handleClick = () => {
     if (isClicked) {
       profileService.removeLikedPost(props.user._id, props.postId);
