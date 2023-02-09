@@ -7,8 +7,9 @@ import { Link } from 'react-router-dom'
 import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
-  const photo = props.post.author.photo ? props.post.author.photo : ProfileIcon
-
+  const [userState, setUserState] = useState(props.post.author)
+  console.log(userState)
+  const photo = userState.photo ? userState.photo : ProfileIcon
   const [showComments, setShowComments] = useState(false)
 
   function handleCommnetClick (){
@@ -22,7 +23,7 @@ const Post = (props) => {
     {/* Renders the users profile name and profile picture: */}
     <div className="author">
       <img className="profile-picture" src={photo} alt="profile pic" />
-      <h4>{props.post.author.name}</h4>
+      <h4>{userState.name}</h4>
     </div>
     {/* Renders the post's photo, caption, and time posted: */}
     <img className="photo" src={props.post.photo} alt="user's post here" />
