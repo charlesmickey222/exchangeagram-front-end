@@ -1,6 +1,7 @@
 import { useState } from "react"
 // import * as postService from '../../services/postService.js'
 import { Link, useNavigate } from "react-router-dom"
+import './CreatePostForm.css'
 
 const CreatePostForm = (props) => {
   const navigate = useNavigate()
@@ -38,7 +39,7 @@ const CreatePostForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='new-post-form' onSubmit={handleSubmit}>
       <label htmlFor="photo-upload">
           Upload Photo
         </label>
