@@ -77,3 +77,7 @@ input:focus{
   outline: none;
   background-color: rgb(226, 224, 224);
 }
+
+.extra-gap{
+  gap: 10px;
+}
