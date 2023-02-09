@@ -17,6 +17,17 @@ Exchange-o-gram is a social media photo sharing application. After signing up, a
 - Whimsical
 - Figma
 
-## Credits
+## Contributors
+- Manny Sanchez [GitHub](https://github.com/mannysanz715)
+- Charlie Mickey [GitHub](https://github.com/charlesmickey222)
+- Drew Neece [GitHub](https://github.com/dneece522)
+- Justin Pastine [GitHub](https://github.com/jpastine)
 
+### See our planning materials [here](https://trello.com/b/hXPvPe0L/unit-3-project)
+### Back-end GitHub [repo](https://github.com/charlesmickey222/exchangeagram-back-end)
 
+## Ice Box
+- [ ] Add chat feature where users can directly message each other
+- [ ] Add friends/followers and friend requests/follow requests
+- [ ] Add other reactions to the like feature
+- [ ] Add feature to search for users
