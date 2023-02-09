@@ -30,4 +30,4 @@ Exchange-o-gram is a social media photo sharing application. After signing up, a
 - [ ] Add chat feature where users can directly message each other
 - [ ] Add friends/followers and friend requests/follow requests
 - [ ] Add other reactions to the like feature
-- [ ] 
+- [ ] Add feature to search for users
