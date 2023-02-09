@@ -17,6 +17,7 @@ Exchange-o-gram is a social media photo sharing application. After signing up, a
 - Whimsical
 - Figma
 
-## Credits
-
+## Contributors
+- Manny Sanchez [GitHub](https://github.com/mannysanz715)
+- Charlie Mickey 
 
