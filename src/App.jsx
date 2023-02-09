@@ -21,6 +21,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as postService from './services/postService'
 import * as profileService from './services/profileService'
+import * as messageService from './services/messageService'
 
 // styles
 import './App.css'
@@ -28,13 +29,19 @@ import PostDetails from './pages/PostDetails/PostDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
-  const [userProfile,setUserProfile] = useState({})
+  const [userProfile, setUserProfile] = useState({})
   const [posts, setPosts] = useState([])
+  const [messages, setMessages] = useState([])
   const navigate = useNavigate()
 
   const handleAddComment = async (postId, commentData) => {
     const updatedPost = await postService.createComment(postId, commentData)
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
+  }
+
+  const handleAddMessage = async (profileId, messageData) => {
+    const newMessage= await messageService.createMessage(profileId, messageData)
+    setMessages([newMessage, ...messages])
   }
 
   const handleAddPost = async (postData, photoData) => {
@@ -182,8 +189,9 @@ const App = () => {
           element={
             <ProtectedRoute user={user}>
               <Messages 
+                messages={messages}
                 profile={userProfile}
-                createMessage={profileService.createMessage}
+                handleAddMessage={handleAddMessage}
                 user={user} />
             </ProtectedRoute>
           }

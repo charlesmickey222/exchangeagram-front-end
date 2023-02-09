@@ -8,6 +8,7 @@ async function getAllProfiles() {
   })
   return await res.json()
 }
+
 async function fetchProfile(targetID){
   const res = await fetch(`${BASE_URL}/api/profiles/${targetID}`,{
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
@@ -35,6 +36,7 @@ async function addLikedPost(profileId, likedPost){
   })
   return await res.json()
 }
+
 async function removeLikedPost(profileId, likedPost){
   const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/add-like/${likedPost}`,{
     method : 'DELETE',
@@ -45,37 +47,10 @@ async function removeLikedPost(profileId, likedPost){
   return await res.json()
 }
 
-async function createMessage(profileId, messageData){
-  console.log(profileId, messageData)
-  console.log(JSON.stringify(messageData))
-  const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/messages/`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`,
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(messageData)
-  })
-  return await res.json()
-}
-
-async function messageList(profileId) {
-  try {
-    const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/messages`, {
-      headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
-    })
-    return  res.json()
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 export {
   getAllProfiles,
   fetchProfile,
   addPhoto,
   addLikedPost,
   removeLikedPost,
-  createMessage,
-  messageList
 }
