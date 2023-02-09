@@ -28,7 +28,8 @@
 }
 
 .postContainer{
-  display: flex;
+  display: flexbox;
+  flex-direction: row;
   padding:10px;
 
 }
