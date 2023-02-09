@@ -38,9 +38,14 @@ const CreatePostForm = (props) => {
   const { caption } = formData
 
   return (
+
     <>
       <form className='new-post-form' onSubmit={handleSubmit}>
       <label htmlFor="photo-upload">
+
+    <main>
+      <form onSubmit={handleSubmit} className='signup-form'>
+      <label htmlFor="photo-upload" className="photo-input">
           Upload Photo
         </label>
         <input
@@ -48,16 +53,20 @@ const CreatePostForm = (props) => {
           id="photo-upload"
           name="photo"
           required
+          className="photo-upload-button"
           onChange={handleChangePhoto}
         />
+        <label>
+          Add a Caption
+        </label>
         <input  type="text"
           autoComplete="off"
           value={formData.caption}
           name="caption"
           onChange={handleChange}/>
-        <button type="submit">Create Post</button>
+        <button type="submit" className="signup-button">Create Post</button>
       </form>
-    </>
+    </main>
 )
 }
 
