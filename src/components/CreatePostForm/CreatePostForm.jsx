@@ -39,10 +39,6 @@ const CreatePostForm = (props) => {
 
   return (
 
-    <>
-      <form className='new-post-form' onSubmit={handleSubmit}>
-      <label htmlFor="photo-upload">
-
     <main>
       <form onSubmit={handleSubmit} className='signup-form'>
       <label htmlFor="photo-upload" className="photo-input">
