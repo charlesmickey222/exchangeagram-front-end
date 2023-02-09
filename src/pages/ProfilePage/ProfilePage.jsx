@@ -9,19 +9,17 @@ const ProfilePage = (props) => {
   const location = useLocation()
   const [targetProfile,setTargetProfile] = useState({})
   const [ownsProfile,setOwnsProfile] = useState({})
-  const [linkName, setLinkName]= useState({})
 
   useEffect(() => {
     console.log(location.state.profile)
     setOwnsProfile(Boolean(props.userProfile._id === location.state.profile._id))
     if (ownsProfile){
       setTargetProfile(props.userProfile)
-      setLinkName(props.userProfile.name.replaceAll(' ','_'))
     }else{
     setTargetProfile(location.state.profile)
     }
-    
-  }, [location.state.profile, props.user, props.userProfile, ownsProfile])
+    localStorage.setItem('targetProfile', JSON.stringify(targetProfile))
+  }, [location.state.profile, props.user, props.userProfile, ownsProfile, targetProfile])
 
   
   if (!targetProfile) return <p>loading</p>
@@ -38,14 +36,13 @@ const ProfilePage = (props) => {
         posts: {targetProfile.posts?targetProfile.posts.length:0}
         <Link to={`messages`}>messages</Link>
       </div>
-      <Link to={`messages`}>messages</Link>
     </div>
     {ownsProfile ?  
         <div className="postContainer">
         {targetProfile.posts?
             targetProfile.posts.map(post => 
             <div key={`${post._id}`}>
-              <PostPreview  post={post._id}/>
+              <PostPreview className='preview' post={post._id}/>
             </div>)
           :
         'no posts here'}
@@ -54,9 +51,13 @@ const ProfilePage = (props) => {
     <div className="postContainer">
       {targetProfile.posts?
           targetProfile.posts.map(post => 
-          <div key={`${post}`}>
-            <PostPreview  post={post}/>
-          </div>)
+          <>
+            {
+              <div key={`${post}`}>
+                <PostPreview className='preview' post={post}/>
+              </div>
+            }
+          </>)
         :
       'no posts here'}
     </div>
