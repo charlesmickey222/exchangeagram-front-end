@@ -1,0 +1,12 @@
+*{
+  /* border: 2px solid red; */
+}
+
+:root{
+  --background-color: rgba(242,242,232);
+  --blueis-color: rgba(149,211,200);
+  --violet-color: rgba(179,25,201);
+  --green-color: rgba(153,194,83);
+  --tan-color: rgba(201,188,155);
+}
+

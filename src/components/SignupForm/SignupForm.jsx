@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './SignupForm.module.css'
+import  './signupForm.css'
 import * as authService from '../../services/authService'
 
 const SignupForm = props => {
@@ -46,10 +47,10 @@ const SignupForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className='signup-form'
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+      <div className='name-input formDiv'>
+        <label htmlFor="name" className={styles.label}>Name</label><br/>
         <input
           type="text"
           autoComplete="off"
@@ -59,8 +60,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+      <div className='email-input formDiv'>
+        <label htmlFor="email" className={styles.label}>Email</label><br/>
         <input
           type="text"
           autoComplete="off"
@@ -70,8 +71,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+      <div className='password-input formDiv'>
+        <label htmlFor="password" className={styles.label}>Password</label><br/>
         <input
           type="password"
           autoComplete="off"
@@ -81,10 +82,10 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div className='password-confirm formDiv'>
         <label htmlFor="confirm" className={styles.label}>
           Confirm Password
-        </label>
+        </label><br/>
         <input
           type="password"
           autoComplete="off"
@@ -94,21 +95,21 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div className='photo-input formDiv'>
         <label htmlFor="photo-upload" className={styles.label}>
           Upload Photo
-        </label>
-        <input
+        </label><br/>
+        <input className='photo-upload-button'
           type="file"
           id="photo-upload"
           name="photo"
           onChange={handleChangePhoto}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div className='submit-form-button formDiv'>
         <button disabled={isFormInvalid()} className={styles.button}>
           Sign Up
-        </button>
+        </button><br/>
         <Link to="/">
           <button>Cancel</button>
         </Link>
