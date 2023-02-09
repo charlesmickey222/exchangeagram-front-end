@@ -8,6 +8,8 @@
   height: 300px;
   background-color: white;
   box-shadow: 20px 20px 50px 15px grey;
+  gap: 5px;
+  width:232px;
 }
 
 .formDiv{
@@ -20,15 +22,58 @@
 
 .photo-input{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 35px;
+  width: 95px;
+  border-radius: 20px;
+  background-color: var(--blueis-color);
+  text-align: center;
   justify-content: center;
+  align-items: center;
+  font-size: 13.33px;
+  color: white;
+}
+.photo-input:hover{
+  background-color: var(--green-color);
 }
 
-.photo-upload{
-  margin: 0 auto;
-  text-align: center;
-  display: felx;
-  justify-content: center;
+.photo-upload-button{
+  display: none;
+}
+
+.submit-form-button{
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 0;
+
+}
+
+.signup-button{
+  width: 90px;
+  height: 35px;
+  background-color: var(--blueis-color);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  justify-content: space-evenly;
+}
+
+.signup-button:hover{
+  background-color: var(--green-color);
+}
+
+input{
+  border: none;
+  background-color: rgb(246, 244, 244);
+  border-radius: 20px;
+  height: 20px;
+}
+
+input:hover{
+  background-color: rgb(226, 224, 224);
+}
+
+input:focus{
+  outline: none;
+  background-color: rgb(226, 224, 224);
 }

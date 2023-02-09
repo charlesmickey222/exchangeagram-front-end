@@ -96,7 +96,7 @@ const SignupForm = props => {
         />
       </div>
       <div className='photo-input formDiv'>
-        <label htmlFor="photo-upload" className={styles.label}>
+        <label htmlFor="photo-upload" className='photo-input'>
           Upload Photo
         </label><br/>
         <input className='photo-upload-button'
@@ -107,11 +107,11 @@ const SignupForm = props => {
         />
       </div>
       <div className='submit-form-button formDiv'>
-        <button disabled={isFormInvalid()} className={styles.button}>
+        <button disabled={isFormInvalid()} className='signup-button'>
           Sign Up
         </button><br/>
         <Link to="/">
-          <button>Cancel</button>
+          <button className='signup-button'>Cancel</button>
         </Link>
       </div>
     </form>
