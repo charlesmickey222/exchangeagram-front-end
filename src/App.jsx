@@ -37,8 +37,11 @@ const App = () => {
     setPosts(posts.map(post => post._id === updatedPost._id ? updatedPost : post))
   }
 
-
-
+  const handleAddPost = async (postData, photoData) => {
+    const newPost = await postService.create(postData, photoData)
+    setPosts([newPost, ...posts])
+    navigate('/posts')
+  }
 
   const handleDeletePost = async (id) => {
     const deletedPost = await postService.deletePost(id)
@@ -151,7 +154,7 @@ const App = () => {
           path="/new-post"
           element={
             <ProtectedRoute user={user}>
-              <NewPost />
+              <NewPost handleAddPost={handleAddPost} />
             </ProtectedRoute>  
           }
         />

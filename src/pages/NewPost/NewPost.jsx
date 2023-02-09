@@ -1,10 +1,10 @@
 import CreatePostForm from "../../components/CreatePostForm/CreatePostForm"
 
-const NewPost = () => {
+const NewPost = (props) => {
   return (
     <>
       <h1>Create a New Post</h1>
-      <CreatePostForm />
+      <CreatePostForm handleAddPost={props.handleAddPost} />
     </>
 )
 }
