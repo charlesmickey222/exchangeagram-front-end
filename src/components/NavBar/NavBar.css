@@ -20,6 +20,11 @@ nav {
   margin-right: 50px;
 }
 
+#logo {
+  height: 35px;
+  width: 35px;
+}
+
 li {
   list-style-type: none;
   border: 2px solid black;

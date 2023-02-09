@@ -8,6 +8,7 @@ import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
   const photo = props.post.author.photo ? props.post.author.photo : ProfileIcon
+
   const [showComments, setShowComments] = useState(false)
 
   function handleCommnetClick (){

@@ -7,15 +7,17 @@ const Feed = (props) => {
       <h1>Post Feed</h1>
       {props.posts.length ?
         < >
-          {props.posts?.map((post) => (
-            <Post
-              key={post._id}
-              post={post}
-              handleAddComment={props.handleAddComment}
-              handleDeletePost={props.handleDeletePost}
-              handleAddLike={props.handleAddLike}
-              user={props.user}
-            />
+          {props.posts?.map((post, idx) => (
+            < >
+              <Post
+                key={idx}
+                post={post}
+                handleAddComment={props.handleAddComment}
+                handleDeletePost={props.handleDeletePost}
+                handleAddLike={props.handleAddLike}
+                user={props.user}
+              />
+            </>
           ))}
         </>
         :
