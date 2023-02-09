@@ -90,7 +90,7 @@ const App = () => {
   // },[user])
 
   return (
-    <>
+    <div className='App'>
       <NavBar user={user} profile={userProfile} handleLogout={handleLogout} />
       <Routes>
         <Route 
@@ -190,7 +190,7 @@ const App = () => {
           />
 
       </Routes>
-    </>
+    </div>
   )
 }
 
