@@ -12,7 +12,7 @@ async function addPhotoPost (photoData, profileId){
     },
     body: photoData
   })
-  return await res.json()
+  return res.json()
 }
 
 async function fetchPost(postId){
@@ -39,7 +39,7 @@ async function index(){
   }
 }
 
-const createPost = async (user, photo) => {
+const createPost = async (post, photo) => {
       try {
         const res = await fetch(BASE_URL, {
           method: 'POST',
@@ -47,18 +47,21 @@ const createPost = async (user, photo) => {
             'Authorization': `Bearer ${tokenService.getToken()}` ,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(user)
+          body: JSON.stringify(post)
         })
+        console.log('RES:', res);
         if (photo) {
           const photoData = new FormData()
           photoData.append('photo', photo)
-          return await addPhotoPost(
+          const postWithPhoto = await addPhotoPost(
             photoData,
             tokenService.getUserFromToken().profile
           )
+          console.log('postWithPhoto:', postWithPhoto);
+          return postWithPhoto
+        } else {
+          return res.json()
         }
-        
-        return res.json()
       } catch (error) {
         console.error(error)
       }
@@ -110,28 +113,11 @@ const update = async (postData) => {
   }
 }
 
-// const addLikes = async (id, likes) => {
-//   try {
-//     const res = await fetch(`${BASE_URL}/${id}/add-likes`, {
-//       method: 'PATCH',
-//       headers: {
-//         'Authorization': `Bearer ${tokenService.getToken()}`,
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({likes})
-//     })
-//     return res.json()
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
-
 export {
   index,
   createPost as create,
   fetchPost,
   createComment,
   deletePost,
-  update,
-  // addLikes,
+  update
 }

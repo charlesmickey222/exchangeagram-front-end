@@ -1,5 +1,8 @@
 import './NavBar.css'
 import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import Logo from '../../assets/branding/Logo.png'
+
 const NavBar = ({ user, profile, handleLogout }) => {
 
   return (
@@ -8,6 +11,9 @@ const NavBar = ({ user, profile, handleLogout }) => {
       {user ?
         <ul id="navbar">
           <div id="navbar-left">
+            <li>
+              <NavLink to={'/'}><img id="logo" src={Logo} alt="camera" /></NavLink>
+            </li>
             <li>
               <Link 
                 to={`/profiles/${user.name.replaceAll(' ','_')}`} 

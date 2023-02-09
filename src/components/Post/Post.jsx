@@ -1,19 +1,29 @@
 import './Post.css'
 import Comment from '../Comment/Comment'
 import NewComment from '../NewComment/NewComment.jsx'
+import { useState } from 'react'
 import NewLike from '../NewLike/NewLike'
 import { Link } from 'react-router-dom'
 import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
-  const photo = props.post.author.photo ? props.post.author.photo : ProfileIcon
+  const [userState, setUserState] = useState(props.post.author)
+  console.log(userState)
+  const photo = userState.photo ? userState.photo : ProfileIcon
+  const [showComments, setShowComments] = useState(false)
 
+  function handleCommnetClick (){
+    if(!showComments){
+    setShowComments(true)}
+    else setShowComments(false)
+  }
+  
   return ( 
   <div id="post">
     {/* Renders the users profile name and profile picture: */}
     <div className="author">
       <img className="profile-picture" src={photo} alt="profile pic" />
-      <h4>{props.post.author.name}</h4>
+      <h4>{userState.name}</h4>
     </div>
     {/* Renders the post's photo, caption, and time posted: */}
     <img className="photo" src={props.post.photo} alt="user's post here" />
@@ -31,11 +41,15 @@ const Post = (props) => {
     </div>
     {/* Renders the comment input field and all of the comments on the post: */}
     <div>
-      <h4>Comments:</h4>
+    <a onClick={() =>handleCommnetClick()}><h4>Comments:</h4></a>
+      {showComments && 
+      <>
       <NewComment handleAddComment={props.handleAddComment} postId={props.post._id} />
       {props.post.comments?.map(comment =>
         <Comment key={comment._id} comment={comment} />
-      )}
+        )}
+      </>
+      }
     </div>
   </div>
   )

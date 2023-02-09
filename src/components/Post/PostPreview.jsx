@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { fetchPost } from "../../services/postService";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { fetchPost } from "../../services/postService"
+import { Link } from "react-router-dom"
 
 const PostPreview = (post) => {
   const [targetPost, setTargetPost] = useState({})
@@ -18,7 +18,7 @@ const PostPreview = (post) => {
   <img src={`${targetPost.photo}`} alt='post preview' style={{height:'20vh'}}/>
   </Link>:'loading post'}
   </>
-  );
+  )
 }
 
-export default PostPreview;
+export default PostPreview
