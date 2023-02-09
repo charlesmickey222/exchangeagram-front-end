@@ -3,13 +3,16 @@ import Comment from '../Comment/Comment'
 import NewComment from '../NewComment/NewComment.jsx'
 import NewLike from '../NewLike/NewLike'
 import { Link } from 'react-router-dom'
+import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
+  const photo = props.post.author.photo ? props.post.author.photo : ProfileIcon
+
   return ( 
   <div id="post">
     {/* Renders the users profile name and profile picture: */}
     <div className="author">
-      <img className="profile-picture" src={props.post.author.photo} alt="profile pic" />
+      <img className="profile-picture" src={photo} alt="profile pic" />
       <h4>{props.post.author.name}</h4>
     </div>
     {/* Renders the post's photo, caption, and time posted: */}
