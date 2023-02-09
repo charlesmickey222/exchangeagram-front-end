@@ -8,8 +8,8 @@ import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
   const [userState, setUserState] = useState(props.post.author)
-  console.log(userState)
   const photo = userState.photo ? userState.photo : ProfileIcon
+
   const [showComments, setShowComments] = useState(false)
 
   function handleCommnetClick (){
@@ -32,7 +32,7 @@ const Post = (props) => {
     {/* Renders edit and delete buttons if the post belongs to the user: */}
     <div className="update-delete-like">
       <NewLike user={props.user} post={props.post} handleAddLike={props.handleAddLike} postId={props.post._id} />
-      {props.post.author._id === props.user.profile &&
+      {userState._id === props.user.profile &&
         < >
           <Link to={`/posts/${props.post._id}/edit`} state={props.post}><button>Edit Caption</button></Link>
           <button onClick={() => props.handleDeletePost(props.post._id)}>Delete Post</button>
