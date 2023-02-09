@@ -1,8 +1,9 @@
 import { useState } from "react"
 
 const NewMessage = (props) => {
+  const profileId = props.user.profile
   const [form, setForm] = useState({ text: '' })
-  const [messages, setMessages] = useState([])
+
   const handleChange = (e) => {
     e.preventDefault()
     setForm({ ...form, [e.target.name]: e.target.value})
@@ -10,12 +11,8 @@ const NewMessage = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    let messageText = form.text
-    setMessages([messageText, ...messages])
+    props.handleAddMessage(profileId, form)
     setForm({text: ''})
-    const messageDataObj = {'text' : messageText,
-      'author' : props.user._id}
-    props.createMessage(props.user._id, messageDataObj)
   }
   
   return (

@@ -1,10 +1,8 @@
 const MessageList = (props) => {
-  console.log('MESSAGES:', props.profile.messages)
+  console.log('MESSAGE', props.message)
   return ( 
     <>
-      {/* {props.profile.messages.map(message =>
-        <p>{message.author}: {message.text}</p>
-      )} */}
+      <p>{props.user.name}: {props.message.text}</p>
     </>
   )
 }
