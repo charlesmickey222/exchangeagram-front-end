@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import * as profileService from '../../services/profileService'
 import {Link} from 'react-router-dom'
+import ProfileIcon from '../../assets/icons/profile.png'
 
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
@@ -24,7 +25,7 @@ const Profiles = () => {
         <ul>
           {profiles.map(profile =>
             <li key={`${profile._id}`}>
-              <img src={`${profile.photo}`} style={{height:'10vh'}} alt='profile'/>
+              <img src={`${profile.photo ? profile.photo : ProfileIcon}`} style={{height:'10vh'}} alt='profile'/>
               <Link to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
             </li>
           )}
