@@ -19,5 +19,9 @@ Exchange-o-gram is a social media photo sharing application. After signing up, a
 
 ## Contributors
 - Manny Sanchez [GitHub](https://github.com/mannysanz715)
-- Charlie Mickey 
+- Charlie Mickey [GitHub](https://github.com/charlesmickey222)
+- Drew Neece [GitHub](https://github.com/dneece522)
+- Justin Pastine [GitHub](https://github.com/jpastine)
 
+### See our planning materials [here](https://trello.com/b/hXPvPe0L/unit-3-project)
+### Back-end GitHub [repo]()
