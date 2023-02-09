@@ -7,7 +7,6 @@ import ProfileIcon from '../../assets/icons/profile.png'
 
 const Post = (props) => {
   const photo = props.post.author.photo ? props.post.author.photo : ProfileIcon
-
   return ( 
   <div id="post">
     {/* Renders the users profile name and profile picture: */}

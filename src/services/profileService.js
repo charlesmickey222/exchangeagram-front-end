@@ -70,4 +70,12 @@ async function messageList(profileId) {
   }
 }
 
-export { getAllProfiles, fetchProfile, addPhoto, addLikedPost, removeLikedPost, createMessage, messageList, }
+export {
+  getAllProfiles,
+  fetchProfile,
+  addPhoto,
+  addLikedPost,
+  removeLikedPost,
+  createMessage,
+  messageList
+}
