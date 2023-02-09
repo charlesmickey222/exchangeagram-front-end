@@ -11,7 +11,6 @@ const ProfilePage = (props) => {
   const [ownsProfile,setOwnsProfile] = useState({})
 
   useEffect(() => {
-    console.log(location.state.profile)
     setOwnsProfile(Boolean(props.userProfile._id === location.state.profile._id))
     if (ownsProfile){
       setTargetProfile(props.userProfile)
@@ -22,7 +21,7 @@ const ProfilePage = (props) => {
   }, [location.state.profile, props.user, props.userProfile, ownsProfile, targetProfile])
 
   
-  if (!targetProfile) return <p>loading</p>
+  if (!targetProfile) return <p>Loading...</p>
   
   return ( 
   <>
