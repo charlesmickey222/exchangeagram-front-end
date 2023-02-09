@@ -13,6 +13,7 @@ const NewMessage = (props) => {
     e.preventDefault()
     props.handleAddMessage(profileId, form)
     setForm({text: ''})
+    props.setCounter(props.counter + 1)
   }
   
   return (
