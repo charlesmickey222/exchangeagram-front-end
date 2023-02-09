@@ -1,4 +1,13 @@
+main{
+  background-color: rgba(201,188,155,.1);
+  display: block;
+}
+img{
+  padding:10px;
+}
+
 .profPic{
+  margin:8px;
   border: 1px solid rgba(0,0,0, .2);
   border-radius: 50%;
   height:14vh;
@@ -13,11 +22,18 @@
 .profileHeader img{
   height: 15vh;
   z-index: 0;
+  padding:0;
 }
-
+.profileHeader{
+  margin:7px;
+  background-color: rgba(153,194,83,.5);
+  padding:4px;
+  border-radius: 4p;
+}
 .username{
   display: inline;
   text-decoration: underline;
+  font-size:20px;
 }
 .statsContainer{
   border:1px solid black;
@@ -25,14 +41,17 @@
   vertical-align: middle;
   margin-left: 10px;
   border-radius: 10%;
+  padding:4px;
 }
 
 .postContainer{
+  margin:0 auto;
   display: flexbox;
   flex-direction: row;
-  padding:10px;
-
 }
-.preview{
+
+PostPreview{
+  display: inline-block;
   padding:10px;
+  margin:0 auto;
 }
