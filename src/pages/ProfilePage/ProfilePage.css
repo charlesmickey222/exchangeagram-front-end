@@ -26,3 +26,12 @@
   margin-left: 10px;
   border-radius: 10%;
 }
+
+.postContainer{
+  display: flex;
+  padding:10px;
+
+}
+.preview{
+  padding:10px;
+}
