@@ -1,10 +1,8 @@
 import * as tokenService from './tokenService'
 
 const BASE_URL = `${process.env.REACT_APP_BACK_END_SERVER_URL}/api/posts`
-//Helper Function
+
 async function addPhotoPost (photoData, profileId){
-  console.log(photoData)
-  console.log(profileId)
   const res = await fetch(`${BASE_URL}/${profileId}/add-photo`, {
     method: 'PUT',
     headers: {
@@ -49,7 +47,6 @@ const createPost = async (post, photo) => {
           },
           body: JSON.stringify(post)
         })
-        console.log('RES:', res);
         if (photo) {
           const photoData = new FormData()
           photoData.append('photo', photo)
@@ -57,7 +54,6 @@ const createPost = async (post, photo) => {
             photoData,
             tokenService.getUserFromToken().profile
           )
-          console.log('postWithPhoto:', postWithPhoto);
           return postWithPhoto
         } else {
           return res.json()

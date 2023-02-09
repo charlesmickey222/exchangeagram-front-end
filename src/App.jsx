@@ -87,15 +87,7 @@ const App = () => {
     }
     fetchAllPosts()
   }, [user])
-
-  // useEffect(() => {
-  //   const fetchAllMessages = async () => {
-  //     const data = await profileService.messageList()
-  //     setMessages(data)
-  //   }
-  //   if (user) fetchAllMessages()
-  // },[user])
-
+  
   return (
     <div className='App'>
       <NavBar user={user} profile={userProfile} handleLogout={handleLogout} />

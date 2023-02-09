@@ -20,16 +20,15 @@ const Post = (props) => {
   
   return ( 
   <div id="post">
-    {/* Renders the users profile name and profile picture: */}
     <div className="author">
       <img className="profile-picture" src={photo} alt="profile pic" />
       <h4>{userState.name}</h4>
     </div>
-    {/* Renders the post's photo, caption, and time posted: */}
+
     <img className="photo" src={props.post.photo} alt="user's post here" />
     <p>{props.post.caption}</p>
     <p>{props.post.createdAt.substr(0, 10)}</p>
-    {/* Renders edit and delete buttons if the post belongs to the user: */}
+
     <div className="update-delete-like">
       <NewLike user={props.user} post={props.post} handleAddLike={props.handleAddLike} postId={props.post._id} />
       {userState._id === props.user.profile &&
@@ -39,7 +38,7 @@ const Post = (props) => {
         </>
       }
     </div>
-    {/* Renders the comment input field and all of the comments on the post: */}
+
     <div>
     <a onClick={() =>handleCommnetClick()}><h4>Comments:</h4></a>
       {showComments && 
