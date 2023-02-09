@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import './ProfilePage.css'
 import { Link } from "react-router-dom";
 import PostPreview from "../../components/Post/PostPreview";
+import ProfileIcon from '../../assets/icons/profile.png'
 
 const ProfilePage = (props) => {
   const location = useLocation()
@@ -30,13 +31,13 @@ const ProfilePage = (props) => {
     <section>
     <div className="profileHeader">
       <div className="profPic">
-      <img src={`${targetProfile.photo}`} alt='profile'/>
+      <img src={`${targetProfile.photo ? targetProfile.photo : ProfileIcon}`} alt='profile'/>
       </div>
       <p className="username">{targetProfile.name}</p>
       <div className="statsContainer">
         posts: {targetProfile.posts?targetProfile.posts.length:0}
-        <Link to={`messages`}>messages</Link>
       </div>
+      <Link to={`messages`}>messages</Link>
     </div>
     {ownsProfile ?  
         <div className="postContainer">
