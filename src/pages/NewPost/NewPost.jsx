@@ -1,7 +1,6 @@
 import CreatePostForm from "../../components/CreatePostForm/CreatePostForm"
 import "./NewPost.css"
 
-
 const NewPost = (props) => {
   return (
     <>
@@ -9,9 +8,8 @@ const NewPost = (props) => {
       <div className="form-div">
         <CreatePostForm className='post-form' handleAddPost={props.handleAddPost} />
       </div>
-
     </>
-)
+  )
 }
 
 export default NewPost
