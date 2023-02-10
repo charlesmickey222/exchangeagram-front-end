@@ -92,11 +92,13 @@ const App = () => {
   return (
     <div className='App'>
       <NavBar user={user} profile={userProfile} handleLogout={handleLogout} />
+      <div className='page-contents'>
+
       <Routes>
         <Route 
           path="/" 
           element={<Landing user={user} />}
-        />
+          />
         <Route 
           path="/posts" 
           element={
@@ -106,18 +108,18 @@ const App = () => {
                 user={user}
                 handleAddComment={handleAddComment}
                 handleDeletePost={handleDeletePost}
-              />
+                />
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
-        />
+          />
         <Route
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
-        />
+          />
         <Route
           path="/:id"
           element={
@@ -125,7 +127,7 @@ const App = () => {
               <ProfilePage user={user}/>
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/profiles/:id"
           element={
@@ -133,7 +135,7 @@ const App = () => {
               <ProfilePage userProfile={userProfile} user={user}/>
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/profiles"
           element={
@@ -141,7 +143,7 @@ const App = () => {
               <Profiles />
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/change-password"
           element={
@@ -149,7 +151,7 @@ const App = () => {
               <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
             </ProtectedRoute>
           }
-        />
+          />
         <Route 
           path="/new-post"
           element={
@@ -157,7 +159,7 @@ const App = () => {
               <NewPost handleAddPost={handleAddPost} />
             </ProtectedRoute>  
           }
-        />
+          />
         <Route path="/profiles/:id/:id"
           element={
             <ProtectedRoute user={user}>
@@ -168,7 +170,7 @@ const App = () => {
                 />
             </ProtectedRoute>
           }
-        />
+          />
         <Route
           path="/posts/:id/edit"
           element={
@@ -176,7 +178,7 @@ const App = () => {
               <EditPostForm handleUpdatePost={handleUpdatePost} />
             </ProtectedRoute>
           }
-        />
+          />
         <Route 
           path='/profiles/:id/messages'
           element={
@@ -190,6 +192,7 @@ const App = () => {
           }
           />
       </Routes>
+      </div>
     </div>
   )
 }
