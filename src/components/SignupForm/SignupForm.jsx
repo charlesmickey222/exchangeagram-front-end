@@ -47,7 +47,7 @@ const SignupForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className='signup-form'
+      className='signup-form form'
     >
       <div className='name-input formDiv'>
         <label htmlFor="name" className={styles.label}>Name</label><br/>
