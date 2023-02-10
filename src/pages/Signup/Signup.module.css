@@ -4,5 +4,9 @@
   flex-direction: column;
 }
 
+.form{
+  justify-content: end;
+  align-items: center;
+}
 
 
