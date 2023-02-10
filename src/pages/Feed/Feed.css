@@ -1,3 +1,10 @@
 h1 {
   text-align: center;
 }
+
+.feed-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

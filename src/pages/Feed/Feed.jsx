@@ -3,7 +3,7 @@ import './Feed.css'
 
 const Feed = (props) => {
   return (
-    < >
+    <div className="feed-container">
       <h1>Post Feed</h1>
       {props.posts.length ?
         < >
@@ -25,7 +25,7 @@ const Feed = (props) => {
           <h4>Loading Feed...</h4>
         </>
       }
-    </>
+    </div>
   )
 }
 
