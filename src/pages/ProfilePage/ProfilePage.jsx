@@ -57,10 +57,7 @@ const ProfilePage = (props) => {
     </div>
     }
     </section>
-  </main> );
-
-);
-
+  </main> )
 }
 
 export default ProfilePage;
