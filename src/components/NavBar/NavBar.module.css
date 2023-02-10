@@ -48,7 +48,6 @@
 }
 
 #right {
-  margin: 0 100px 0 0;
   width: 100%;
   display: flex;
   list-style: none;
@@ -57,10 +56,7 @@
   justify-content: flex-end;
 }
 
-
-
 #left {
-  margin: 0;
   width: 100%;
   display: flex;
   list-style: none;
@@ -73,14 +69,15 @@
   margin-left: 35px;
   text-align: right;
 }
+
 .desktop{
   display: flex;
   flex-wrap: nowrap;
 }
+
 .mobile{
   visibility: hidden;
 }
-
 
 @media only screen and (max-width: 500px) {
   .container ul {

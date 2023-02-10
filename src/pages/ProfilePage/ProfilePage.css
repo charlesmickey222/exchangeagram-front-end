@@ -42,6 +42,7 @@ img{
   display: inline-block; 
   vertical-align: middle;
   margin-left: 10px;
+  margin-right: 10px;
   border-radius: 10%;
   padding:4px;
 }
