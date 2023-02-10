@@ -16,12 +16,18 @@ h4 {
 .photo {
   width: 300px;
   height: auto;
+  border-radius: 20px;
 }
 
 .author {
   display: flex;
-  gap: 50px;
-  margin-bottom: 5px;
+  gap: 5px;
+  justify-content: space-between;
+  width: 300px;
+}
+.top-post{
+  display: flex;
+
 }
 
 .update-delete-like {
@@ -48,3 +54,4 @@ h4 {
   0 100px 80px rgba(0, 0, 0, 0.12)
 ;
 }
+
