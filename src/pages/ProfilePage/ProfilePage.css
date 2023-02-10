@@ -34,6 +34,7 @@ img{
   display: inline;
   text-decoration: underline;
   font-size:20px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .statsContainer {
