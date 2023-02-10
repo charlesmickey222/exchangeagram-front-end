@@ -20,7 +20,7 @@ const ProfilePage = (props) => {
     localStorage.setItem('targetProfile', JSON.stringify(targetProfile))
   }, [location.state.profile, props.user, props.userProfile, ownsProfile, targetProfile])
 
-  if (!targetProfile) return <p>Loading...</p>
+  if (!targetProfile.posts) return <p>Loading...</p>
   
   return ( 
     <main>
@@ -35,20 +35,20 @@ const ProfilePage = (props) => {
           </div>
           <Link to={`messages`}>CHATROOM</Link>
         </div>
-        {ownsProfile ?  
+        {ownsProfile&& 
           <div className="postContainer">
             {targetProfile.posts ?
               targetProfile.posts.map(post =><PostPreview key={`${post._id}`} className='preview' post={post._id}/>)
             :
               <p>No Posts Yet</p>
             }
-          </div>
-        :
-          <div className="postContainer">
+          </div>}
+
+          {!ownsProfile&&<div className="postContainer">
             {targetProfile.posts ?
               targetProfile.posts.map(post =>
                 <div key={`${post}`}>
-                  <PostPreview className='preview' post={post}/>
+                  {!post.photo?<PostPreview className='preview' post={post}/>:''}
                 </div>
               )
             :
