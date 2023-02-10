@@ -1,93 +1,36 @@
-import './NavBar.css'
+import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/branding/Logo.png'
 
 const NavBar = ({ user, profile, handleLogout }) => {
 
+  const publicLinks = (
+    <ul>
+      <li><Link to="/login" className={styles.links}>Log In</Link></li>
+      <li><Link to="/signup" className={styles.links}>Sign Up</Link></li>
+    </ul>
+  )
+
+  const protectedLinks = (
+    < >
+      <ul id={styles.left}>
+        {user && <li><Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link></li>}
+        <li><Link to="/profiles" className={styles.links}>Profiles</Link></li>
+        <li><Link to="/posts" className={styles.links}>Feed</Link></li>
+        <li><Link to="/new-post" className={styles.links}>Create Post</Link></li>
+      </ul>
+      <ul id={styles.right}>
+        <li><Link to="" onClick={handleLogout} className={styles.links}>LOG OUT</Link></li>
+        <li><Link to="/change-password"><i className="fa-solid fa-gear fa-2x"></i></Link></li>
+      </ul>
+    </>
+  )
+
   return (
-    
-    <nav>
-      {user ?
-        <ul id="navbar">
-          <div id="navbar-left">
-            <li>
-              <NavLink to={'/'}><img id="logo" src={Logo} alt="camera" /></NavLink>
-            </li>
-            <li>
-              <Link 
-                to={`/profiles/${user.name.replaceAll(' ','_')}`} 
-                state={{profile}} 
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                {user.name}
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/profiles"
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                Profiles
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/posts"
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                Feed
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/new-post"
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                Create Post
-              </Link>
-            </li>
-          </div>
-          <div id="navbar-right">
-            <li>
-              <Link
-                to=""
-                onClick={handleLogout}
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                LOG OUT
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/change-password"
-                style={{textDecoration: 'none', color: 'black'}}
-              >
-                <i className="fa-solid fa-gear"></i>
-              </Link>
-            </li>
-          </div>
-        </ul>
-      :
-        <ul>
-          <li>
-            <Link
-              to="/login"
-              style={{textDecoration: 'none', color: 'black'}}
-            >
-              Log In
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/signup"
-              style={{textDecoration: 'none', color: 'black'}}
-            >
-              Sign Up
-            </Link>
-          </li>
-        </ul>
-      }
+    <nav className={styles.container}>
+      <NavLink to={'/'}><img id="logo" src={Logo} alt="camera" /></NavLink>
+      {user ? protectedLinks : publicLinks}
     </nav>
   )
 }
