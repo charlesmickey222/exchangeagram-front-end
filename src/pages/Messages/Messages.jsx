@@ -2,7 +2,6 @@ import NewMessage from "../../components/CreateMesageForm/CreateMessageForm"
 import MessageList from "../MessageList/MessageList"
 import * as messageService from '../../services/messageService'
 import { useEffect, useState } from "react"
-import './Messages.css'
 
 
 const Messages = (props) => {

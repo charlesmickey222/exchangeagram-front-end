@@ -17,24 +17,23 @@ const Profiles = () => {
 
   return (
     <>
-
       <h1>Profiles</h1>
       {profiles.length ? 
         <>
-    <div className="profile-container">
-          <ul>
-            {profiles.map(profile =>
-              <li key={`${profile._id}`}>
-                <img src={`${profile.photo ? profile.photo : ProfileIcon}`} style={{height:'10vh'}} alt='profile'/>
-                <Link to={`${profile.name.replaceAll(' ','_')}`} className="link"state={{profile}}>{profile.name}</Link>
-              </li>
-            )}
-          </ul>
-          </div>
-        </>
-      :
-      <p>No Profiles Yet</p>
-    }
+        <div className="profile-container">
+              <ul>
+                {profiles.map(profile =>
+                  <li key={`${profile._id}`}>
+                    <img src={`${profile.photo ? profile.photo : ProfileIcon}`} style={{height:'10vh'}} alt='profile'/>
+                    <Link to={`${profile.name.replaceAll(' ','_')}`} className="link"state={{profile}}>{profile.name}</Link>
+                  </li>
+                )}
+              </ul>
+              </div>
+            </>
+          :
+          <p>No Profiles Yet</p>
+        }
     </>
   )
 }
