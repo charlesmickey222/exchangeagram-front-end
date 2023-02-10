@@ -1,6 +1,6 @@
 # EXCHANGE-O-GRAM
 
-![](/public/Screenshot%202023-02-10%20at%209.20.42%20AM.png)
+![](/public/screenshot.png)
 
 # Use our app [here](https://exchangeagram.netlify.app/)
 
