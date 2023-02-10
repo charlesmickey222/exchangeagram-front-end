@@ -28,30 +28,30 @@ const CreatePostForm = (props) => {
     <>
       <main>
         <form onSubmit={handleSubmit} className='signup-form'>
-        <label htmlFor="photo-upload" className="photo-input">
-            Upload Photo
-        </label>
-        <input
-          type="file"
-          id="photo-upload"
-          name="photo"
-          required
-          className="photo-upload-button"
-          onChange={handleChangePhoto}
-        />
-        <label>
-          Add a Caption
-        </label>
-        <input  type="text"
-          autoComplete="off"
-          value={formData.caption}
-          name="caption"
-          onChange={handleChange}/>
-        <button type="submit" className="signup-button">Create Post</button>
-      </form>
-    </main>
+          <label htmlFor="photo-upload" className="photo-input">
+              Upload Photo
+          </label>
+          <input
+            type="file"
+            id="photo-upload"
+            name="photo"
+            required
+            className="photo-upload-button"
+            onChange={handleChangePhoto}
+          />
+          <label>
+            Add a Caption
+          </label>
+          <input  type="text"
+            autoComplete="off"
+            value={formData.caption}
+            name="caption"
+            onChange={handleChange}/>
+          <button type="submit" className="signup-button">Create Post</button>
+        </form>
+      </main>
     </>
-)
-  }
+  )
+}
 
 export default CreatePostForm 
