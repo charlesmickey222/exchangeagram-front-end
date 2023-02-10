@@ -1,3 +1,4 @@
+
 img{
   height:80vh;
 }
@@ -7,4 +8,20 @@ img{
 .PostContainer{
   display: block;
   margin: 0 auto;
+  text-align: center;
+
+}
+.comments{
+display: block;
+background-color: rgba(153,194,83,.5);
+}
+.caption{
+  display: flex;
+  margin:0 auto;
+  background-color: rgba(179,25,201,.2);
+  width: fit-content;
+  padding:10px;
+  border-top-right-radius:6px;
+  border-top-left-radius: 6px;
+
 }
