@@ -1,6 +1,6 @@
 # EXCHANGE-O-GRAM
 
-![](/public/screenshot.png)
+![](/public/screenshot.PNG)
 
 # Use our app [here](https://exchangeagram.netlify.app/)
 
