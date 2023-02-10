@@ -1,12 +1,26 @@
 import styles from './NavBar.module.css'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../../assets/branding/Logo.png'
-import Dropdown from 'react-bootstrap/Dropdown';
-
+import { Dropdown } from 'react-bootstrap';
+import './NavBar.module.css'
 
 
 const NavBar = ({ user, profile, handleLogout }) => {
+  const [isDesktop, setDesktop] = useState(window.innerWidth > 640);
+  const [isMobile, setMobile] = useState(window.innerWidth < 640);
+
+  const updateMedia = () => {
+    setDesktop(window.innerWidth > 640);
+    setMobile(window.innerWidth < 640);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  },[]);
+
 
   const publicLinks = (
     <ul>
@@ -16,7 +30,9 @@ const NavBar = ({ user, profile, handleLogout }) => {
   )
 
   const protectedLinks = (
-    <div className='drop-men' >
+    < >
+    
+    { isMobile && <div className='drop-men mobile'>
     <Dropdown className='drop-men' 
     align="start"
     >
@@ -43,7 +59,25 @@ const NavBar = ({ user, profile, handleLogout }) => {
 
       </Dropdown.Menu>
     </Dropdown>
-    </div>
+    </div> }
+
+
+  {isDesktop &&
+      <>
+      <ul id='left'>
+        {user && <li><Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link></li>}
+        <li><Link to="/profiles" className={styles.links}>Profiles</Link></li>
+        <li><Link to="/posts" className={styles.links}>Feed</Link></li>
+        <li><Link to="/new-post" className={styles.links}>Create Post</Link></li>
+      </ul>
+      <ul id='right'>
+        <li><Link to="" onClick={handleLogout} className={styles.links}>LOG OUT</Link></li>
+        <li><Link to="/change-password"><i className="fa-solid fa-gear fa-2x"></i></Link></li>
+      </ul>
+      </>
+    }
+
+    </>
   )
 
   return (

@@ -57,10 +57,7 @@
   justify-content: flex-end;
 }
 
-.drop-men{
-  display: flex;
-  justify-content: space-between;
-}
+
 
 #left {
   margin: 0;
@@ -76,15 +73,24 @@
   margin-left: 35px;
   text-align: right;
 }
+.desktop{
+  display: flex;
+  flex-wrap: nowrap;
+}
+.mobile{
+  visibility: hidden;
+}
 
 
-
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 500px) {
   .container ul {
     padding-left: 0px;
   }
   .container li {
     font-size: 15px;
+  }
+  .mobile{
+    visibility: hidden;
   }
 }
 
