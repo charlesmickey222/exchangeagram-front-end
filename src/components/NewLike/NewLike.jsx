@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import * as profileService from '../../services/profileService.js'
-import * as postService from '../../services/postService.js'
 
 const NewLike = (props) => {
   const [likes, setLikes] = useState((props.post.likes ? props.post.likes.length : 0));
@@ -21,8 +20,6 @@ const NewLike = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
   }
-
-  console.log(props.post)
   
   return (
     <form onSubmit={handleSubmit}>
