@@ -1,3 +1,4 @@
+import './CreateMessageForm.css'
 import { useState } from "react"
 
 const NewMessage = (props) => {

@@ -64,16 +64,16 @@ const NavBar = ({ user, profile, handleLogout }) => {
 
   {isDesktop &&
       <>
-      <ul id='left'>
-        {user && <li><Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link></li>}
-        <li><Link to="/profiles" className={styles.links}>Profiles</Link></li>
-        <li><Link to="/posts" className={styles.links}>Feed</Link></li>
-        <li><Link to="/new-post" className={styles.links}>Create Post</Link></li>
-      </ul>
-      <ul id='right'>
-        <li><Link to="" onClick={handleLogout} className={styles.links}>LOG OUT</Link></li>
-        <li><Link to="/change-password"><i className="fa-solid fa-gear fa-2x"></i></Link></li>
-      </ul>
+        <ul id='left'>
+          {user && <li><Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link></li>}
+          <li><Link to="/profiles" className={styles.links}>Profiles</Link></li>
+          <li><Link to="/posts" className={styles.links}>Feed</Link></li>
+          <li><Link to="/new-post" className={styles.links}>Create Post</Link></li>
+        </ul>
+        <ul id='right'>
+          <li><Link to="" onClick={handleLogout} className={styles.links}>LOG OUT</Link></li>
+          <li><Link to="/change-password"><i className="fa-solid fa-gear fa-2x"></i></Link></li>
+        </ul>
       </>
     }
 
