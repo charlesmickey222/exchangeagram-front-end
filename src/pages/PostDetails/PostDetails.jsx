@@ -1,7 +1,8 @@
+
 import { useLocation  } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Comment from "../../components/Comment/Comment.jsx";
-import NewComment from "../../components/NewComment/NewComment.jsx";
+
 import './PostDetails.css'
 
 const PostDetails = (props) => {
@@ -13,19 +14,18 @@ const PostDetails = (props) => {
     localStorage.setItem('post', JSON.stringify(post))
   },[location.state.targetPost, post])
 
-  if (!post) return <p>Loading</p>
+  if (!post) return <p>Loading...</p>
+
   return ( 
     <div className="PostContainer">
-    <img src={`${post.photo}`} alt='post'/>
-    <div>
+    <img src={`${post.photo}`} className='pic' alt='post'/>
+    <div className="caption">{post.caption}</div>
+    <div className="comments">
     Likes: {post.likes?post.likes.length:'0'}
-    </div>
-    <div>
       {post.comments?.map(comment => <Comment key={comment._id} comment={comment} className='comment'/>)}
     </div>
-    <NewComment handleAddComment={props.handleAddComment} postId={post._id} />
     </div>
-  );
+  )
 }
 
-export default PostDetails;
+export default PostDetails

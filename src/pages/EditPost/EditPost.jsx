@@ -35,7 +35,7 @@ const EditPostForm = (props) => {
       </form>
       <img src={formData.photo} alt="original post" />
     </>
-)
+  )
 }
 
 export default EditPostForm 

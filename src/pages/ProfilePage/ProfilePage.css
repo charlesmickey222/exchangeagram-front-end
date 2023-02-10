@@ -3,7 +3,7 @@ img{
   padding:10px;
 }
 
-.profPic{
+.profPic {
   margin:8px;
   border: 1px solid rgba(0,0,0, .2);
   border-radius: 50%;
@@ -16,23 +16,27 @@ img{
   margin:0 10px 0 10px;
   display: inline-block;
 }
-.profileHeader img{
+
+.profileHeader img {
   height: 15vh;
   z-index: 0;
   padding:0;
 }
-.profileHeader{
-  margin:7px;
+
+.profileHeader {
+  margin-top:100px;
   background-color: rgba(153,194,83,.5);
   padding:4px;
   border-radius: 4p;
 }
-.username{
+
+.username {
   display: inline;
   text-decoration: underline;
   font-size:20px;
 }
-.statsContainer{
+
+.statsContainer {
   border:1px solid black;
   display: inline-block; 
   vertical-align: middle;
@@ -41,13 +45,13 @@ img{
   padding:4px;
 }
 
-.postContainer{
+.postContainer {
   margin:0 auto;
   display: flexbox;
   flex-direction: row;
 }
 
-PostPreview{
+PostPreview {
   display: inline-block;
   padding:10px;
   margin:0 auto;

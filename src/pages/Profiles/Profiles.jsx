@@ -6,7 +6,6 @@ import ProfileIcon from '../../assets/icons/profile.png'
 const Profiles = () => {
   const [profiles, setProfiles] = useState([])
   
-  
   useEffect(() => {
     const fetchProfiles = async () => {
       const profileData = await profileService.getAllProfiles()
@@ -15,25 +14,22 @@ const Profiles = () => {
     fetchProfiles()
   }, [])
 
-  
-
   return (
     <>
       <h1>Profiles</h1>
       {profiles.length ? 
         <>
-        <ul>
-          {profiles.map(profile =>
-            <li key={`${profile._id}`}>
-              <img src={`${profile.photo ? profile.photo : ProfileIcon}`} style={{height:'10vh'}} alt='profile'/>
-              <Link to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
-            </li>
-          )}
-
+          <ul>
+            {profiles.map(profile =>
+              <li key={`${profile._id}`}>
+                <img src={`${profile.photo ? profile.photo : ProfileIcon}`} style={{height:'10vh'}} alt='profile'/>
+                <Link to={`${profile.name.replaceAll(' ','_')}`} state={{profile}}>{profile.name}</Link>
+              </li>
+            )}
           </ul>
         </>
       :
-        <p>No profiles yet</p>
+        <p>No Profiles Yet</p>
       }
     </>
   )

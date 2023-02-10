@@ -9,8 +9,8 @@ async function getAllProfiles() {
   return await res.json()
 }
 
-async function fetchProfile(targetID){
-  const res = await fetch(`${BASE_URL}/api/profiles/${targetID}`,{
+async function fetchProfile(targetID) {
+  const res = await fetch(`${BASE_URL}/api/profiles/${targetID}`, {
     headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
   })
   return await res.json()
@@ -27,7 +27,7 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-async function addLikedPost(profileId, likedPost){
+async function addLikedPost(profileId, likedPost) {
   const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/add-like/${likedPost}`,{
     method : 'PATCH',
     headers: {
@@ -37,7 +37,7 @@ async function addLikedPost(profileId, likedPost){
   return await res.json()
 }
 
-async function removeLikedPost(profileId, likedPost){
+async function removeLikedPost(profileId, likedPost) {
   const res = await fetch(`${BASE_URL}/api/profiles/${profileId}/add-like/${likedPost}`,{
     method : 'DELETE',
     headers: {

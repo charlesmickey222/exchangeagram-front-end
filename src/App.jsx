@@ -13,6 +13,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage'
 import Feed from './pages/Feed/Feed'
 import EditPostForm from './pages/EditPost/EditPost'
 import Messages from './pages/Messages/Messages'
+
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -73,7 +74,7 @@ const App = () => {
   }
 
   useEffect(() =>{
-    const getUserProfile = async() =>{
+    const getUserProfile = async() => {
       const targetProfile = await profileService.fetchProfile(user.profile)
       setUserProfile(targetProfile)
     }
@@ -190,7 +191,6 @@ const App = () => {
             </ProtectedRoute>
           }
           />
-
       </Routes>
       </div>
     </div>

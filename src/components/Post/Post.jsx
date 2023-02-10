@@ -12,7 +12,7 @@ const Post = (props) => {
 
   const [showComments, setShowComments] = useState(false)
 
-  function handleCommnetClick (){
+  function handleCommnetClick () {
     if(!showComments){
     setShowComments(true)}
     else setShowComments(false)
@@ -40,14 +40,14 @@ const Post = (props) => {
     </div>
 
     <div>
-    <a onClick={() =>handleCommnetClick()}><h4>Comments:</h4></a>
+      <span onClick={() =>handleCommnetClick()}><h4>{showComments ? 'Comments:' : 'Click Here for Comments'}</h4></span>
       {showComments && 
-      <>
-      <NewComment handleAddComment={props.handleAddComment} postId={props.post._id} />
-      {props.post.comments?.map(comment =>
-        <Comment key={comment._id} comment={comment} />
-        )}
-      </>
+        <>
+          <NewComment handleAddComment={props.handleAddComment} postId={props.post._id} />
+          {props.post.comments?.map(comment =>
+            <Comment key={comment._id} comment={comment} />
+          )}
+        </>
       }
     </div>
   </div>
