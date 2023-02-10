@@ -41,7 +41,11 @@ const NavBar = ({ user, profile, handleLogout }) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item>{user && <Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link>}</Dropdown.Item>
+        {user ?
+          <Dropdown.Item state={profile} href={`/profiles/${user.name.replaceAll(' ','_')}`}>{user &&<Link to={`/profiles/${user.name.replaceAll(' ','_')}`} state={{profile}} className={styles.links}>{user.name}</Link>}</Dropdown.Item>
+        :
+          ''
+        }
 
         <Dropdown.Item href="/profiles"><Link to="/profiles" className={styles.links}>Profiles</Link></Dropdown.Item>
 
