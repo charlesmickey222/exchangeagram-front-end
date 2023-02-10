@@ -35,8 +35,8 @@ const Post = (props) => {
       <NewLike user={props.user} post={props.post} handleAddLike={props.handleAddLike} postId={props.post._id} />
       {userState._id === props.user.profile &&
         < >
-          <Link to={`/posts/${props.post._id}/edit`} state={props.post}><button>Edit Caption</button></Link>
-          <button onClick={() => props.handleDeletePost(props.post._id)}>Delete Post</button>
+          <Link to={`/posts/${props.post._id}/edit`} state={props.post}><button className='post-button'>Edit Caption</button></Link>
+          <button className='post-button' onClick={() => props.handleDeletePost(props.post._id)}>Delete Post</button>
         </>
       }
     </div>
