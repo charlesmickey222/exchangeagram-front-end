@@ -23,7 +23,6 @@ async function messageList(profileId) {
     const res = await fetch(`${BASE_URL}/api/messages/${profileId}/messages`, {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}`}
     })
-    // console.log(res.json())
     return res.json()
   } catch (error) {
     console.log(error)

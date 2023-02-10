@@ -28,11 +28,11 @@ const Messages = (props) => {
     />
     {messages?.map(message =>
         <MessageList key={message._id} message={message}/>
-        
-        // <p key={message._id}>{message.author}: {message.text}</p>
       )}
   </>
   )
 }
+        
+        
 
 export default Messages;

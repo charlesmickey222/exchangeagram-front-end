@@ -19,7 +19,7 @@ const Profiles = () => {
 
   return (
     <>
-      <h1>Hello. This is a list of all the profiles.</h1>
+      <h1>Profiles</h1>
       {profiles.length ? 
         <>
         <ul>

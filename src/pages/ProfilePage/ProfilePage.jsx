@@ -33,8 +33,8 @@ const ProfilePage = (props) => {
       </div>
       <p className="username">{targetProfile.name}</p>
       <div className="statsContainer">
-        posts: {targetProfile.posts?targetProfile.posts.length:0}
-        <Link to={`messages`}>messages</Link>
+        Posts: {targetProfile.posts?targetProfile.posts.length:0}
+        <Link to={`messages`}>Messages</Link>
       </div>
     </div>
     {ownsProfile ?  
@@ -55,9 +55,12 @@ const ProfilePage = (props) => {
               :
       <>'no posts here'</>}
     </div>
-}
+    }
     </section>
   </main> );
+
+);
+
 }
 
 export default ProfilePage;
