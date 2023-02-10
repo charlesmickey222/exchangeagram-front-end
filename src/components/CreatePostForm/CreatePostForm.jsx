@@ -1,12 +1,7 @@
 import { useState } from "react"
-// import * as postService from '../../services/postService.js'
-import { Link, useNavigate } from "react-router-dom"
 import './CreatePostForm.css'
 
 const CreatePostForm = (props) => {
-  const navigate = useNavigate()
-
-
   const [photoData, setPhotoData] = useState({})
   
   const handleChangePhoto = (evt) => {
@@ -27,22 +22,14 @@ const CreatePostForm = (props) => {
   const handleSubmit = async e => {
     e.preventDefault()
     props.handleAddPost(formData, photoData.photo)
-    // try {
-    //   await postService.create(formData, photoData.photo)
-    //   navigate('/posts')
-    // } catch (err) {
-    //   console.log(err)
-    // }
   }
-
-  const { caption } = formData
-
+    
   return (
     <>
-    <main>
-      <form onSubmit={handleSubmit} className='signup-form'>
-      <label htmlFor="photo-upload" className="photo-input">
-          Upload Photo
+      <main>
+        <form onSubmit={handleSubmit} className='signup-form'>
+        <label htmlFor="photo-upload" className="photo-input">
+            Upload Photo
         </label>
         <input
           type="file"

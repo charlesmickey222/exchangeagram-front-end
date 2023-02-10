@@ -10,7 +10,8 @@ const ProfilePage = (props) => {
   const [targetProfile,setTargetProfile] = useState({})
   const [ownsProfile,setOwnsProfile] = useState({})
 
-  useEffect(() => {
+  useEffect((evt) => {
+
     setOwnsProfile(Boolean(props.userProfile._id === location.state.profile._id))
     if (ownsProfile){
       setTargetProfile(props.userProfile)
@@ -24,7 +25,7 @@ const ProfilePage = (props) => {
   if (!targetProfile) return <p>Loading...</p>
   
   return ( 
-  <>
+  <main>
     <section>
     <div className="profileHeader">
       <div className="profPic">
@@ -32,37 +33,31 @@ const ProfilePage = (props) => {
       </div>
       <p className="username">{targetProfile.name}</p>
       <div className="statsContainer">
-        posts: {targetProfile.posts?targetProfile.posts.length:0}
-        <Link to={`messages`}>messages</Link>
+        Posts: {targetProfile.posts?targetProfile.posts.length:0}
+        <Link to={`messages`}>Messages</Link>
       </div>
     </div>
     {ownsProfile ?  
         <div className="postContainer">
         {targetProfile.posts?
-            targetProfile.posts.map(post => 
-            <div key={`${post._id}`}>
-              <PostPreview className='preview' post={post._id}/>
-            </div>)
+            targetProfile.posts.map(post =><PostPreview key={`${post._id}`} className='preview' post={post._id}/>)
           :
         'no posts here'}
       </div>
       :
     <div className="postContainer">
       {targetProfile.posts?
-          targetProfile.posts.map(post => 
-          <>
-            {
+          targetProfile.posts.map(post =>
               <div key={`${post}`}>
                 <PostPreview className='preview' post={post}/>
               </div>
-            }
-          </>)
-        :
-      'no posts here'}
+              )
+              :
+      <>'no posts here'</>}
     </div>
-}
+    }
     </section>
-  </> );
+  </main> )
 }
 
 export default ProfilePage;
