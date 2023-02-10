@@ -57,6 +57,11 @@
   justify-content: flex-end;
 }
 
+.drop-men{
+  display: flex;
+  justify-content: space-between;
+}
+
 #left {
   margin: 0;
   width: 100%;
@@ -72,6 +77,8 @@
   text-align: right;
 }
 
+
+
 @media only screen and (max-width: 414px) {
   .container ul {
     padding-left: 0px;
@@ -80,3 +87,4 @@
     font-size: 15px;
   }
 }
+

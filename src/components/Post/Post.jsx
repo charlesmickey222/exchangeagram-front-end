@@ -21,8 +21,10 @@ const Post = (props) => {
   return ( 
   <div id="post">
     <div className="author">
-      <img className="profile-picture" src={photo} alt="profile pic" />
-      <h4>{userState.name}</h4>
+      <div className='top-post'>
+        <img className="profile-picture" src={photo} alt="profile pic" />
+        <h4>{userState.name}</h4>
+      </div>
     </div>
 
     <img className="photo" src={props.post.photo} alt="user's post here" />

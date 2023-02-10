@@ -17,7 +17,7 @@ const NewMessage = (props) => {
   }
   
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='login'>
       <textarea
         required
         type="text"

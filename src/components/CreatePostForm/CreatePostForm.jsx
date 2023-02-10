@@ -26,7 +26,7 @@ const CreatePostForm = (props) => {
     
   return (
     <>
-      <main>
+      <main className="login">
         <form onSubmit={handleSubmit} className='signup-form'>
           <label htmlFor="photo-upload" className="photo-input">
               Upload Photo
