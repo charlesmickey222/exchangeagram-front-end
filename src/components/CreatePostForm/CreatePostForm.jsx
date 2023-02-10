@@ -47,7 +47,7 @@ const CreatePostForm = (props) => {
             value={formData.caption}
             name="caption"
             onChange={handleChange}/>
-          <button type="submit" className="signup-button">Create Post</button>
+          <button type="submit" className="signup-button button">Create Post</button>
         </form>
       </main>
     </>
