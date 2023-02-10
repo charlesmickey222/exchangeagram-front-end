@@ -2,6 +2,7 @@ import NewMessage from "../../components/CreateMesageForm/CreateMessageForm"
 import MessageList from "../MessageList/MessageList"
 import * as messageService from '../../services/messageService'
 import { useEffect, useState } from "react"
+import './Messages.css'
 
 
 const Messages = (props) => {
@@ -18,8 +19,7 @@ const Messages = (props) => {
 
   return ( 
     <>
-      <p>This is the message page</p>
-      <p>Send Message</p>
+      <h1>Global Chatroom</h1>
       <NewMessage
         messages={messages}
         user={props.user}

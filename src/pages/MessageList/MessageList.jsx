@@ -1,7 +1,9 @@
+import './MessageList.css'
+
 const MessageList = (props) => {
   return ( 
     <>
-      <p>{props.message.author.name}: {props.message.text}</p>
+      <p><span className="msg-author">@{props.message.author.name}:</span> {props.message.text}</p>
     </>
   )
 }
