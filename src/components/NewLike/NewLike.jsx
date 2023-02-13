@@ -24,7 +24,7 @@ const NewLike = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick } type="submit">
-        <span className="likes-counter">{ `Like | ${likes}` }</span>
+        <span className="likes-counter">{ isClicked ? `Like | ${likes}` : `Unlike | ${likes}`}</span>
       </button>
     </form>
   )
